@@ -29,6 +29,8 @@ public class Frame1
     setUndecorated(false);
     setResizable(false);
     
+    //Test
+    
     setLayout(new BorderLayout());
     this.background = new JLabel(ResourceLoader.Iconload("/Dbb.png"));
     this.background.setBounds(0, 0, 800, 600);
