@@ -25,6 +25,8 @@ extends JFrame
 	public JButton MiningInfo;
 	private JButton StartMining;
 	private JLabel background;
+	private JLabel checkcolorR;
+	private JLabel checkcolorG;
 
 	public Frame1()
 	{
@@ -38,6 +40,7 @@ extends JFrame
 		background = new JLabel(ResourceLoader.Iconload("/Dbb.png"));
 		background.setBounds(0, 0, 800, 600);
 		add(background);
+		
 
 		background.setLayout(null);
 
@@ -133,7 +136,8 @@ extends JFrame
 	{
 		String p = ExactName.getText().toString();
 		String f = (String)Specs.AMD.get(p);
-		if ((f != "null") && (f != null) && (!Walletaddress.getText().equals("@Walletaddress")))
+		String g = (String)Specs.NVIDEA.get(p);
+		if ((((f != "null") && (f != null)) || (g != "null") && (g != null)) && (!Walletaddress.getText().equals("@Walletaddress") && Walletaddress.getText().length() == 34))
 		{
 			if ((p.contains("AMD")) || (p.contains("GeForce"))) {
 				StartMining.setEnabled(true);
