@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
@@ -33,11 +34,11 @@ public class Main
     Specs.initSpecs();
     try
     {
-      String filePath = "./foo.txt";
-      ProcessBuilder pb = new ProcessBuilder(new String[] { "cmd.exe", "/c", "dxdiag", "/t", filePath });
-      System.out.println("-- Executing dxdiag command --");
-      Process p = pb.start();
-      p.waitFor();
+    	String filePath = "./foo.txt";
+        ProcessBuilder pb = new ProcessBuilder("cmd.exe","/c","dxdiag","/t",filePath);
+        System.out.println("-- Executing dxdiag command --");
+        Process p = pb.start();
+        p.waitFor();
       
       BufferedReader br = new BufferedReader(new FileReader(filePath));
       String line;
@@ -67,4 +68,5 @@ public class Main
     });
     timer.start();
   }
+  
 }
