@@ -1,7 +1,9 @@
 package me.MinerX;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
@@ -12,7 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 public class Frame1
 extends JFrame
@@ -27,6 +31,7 @@ extends JFrame
 	private JLabel background;
 	private JLabel checkcolorR;
 	private JLabel checkcolorG;
+	private boolean ExactNameRight = false;
 
 	public Frame1()
 	{
@@ -34,46 +39,40 @@ extends JFrame
 		setSize(807, 530);
 		setUndecorated(false);
 		setResizable(false);
-
-
-		setLayout(new BorderLayout());
-		background = new JLabel(ResourceLoader.Iconload("/Dbb.png"));
-		background.setBounds(0, 0, 800, 600);
-		add(background);
 		
 
-		background.setLayout(null);
-
+		setContentPane(new DrawPane());
+		setLayout(null);
 
 		Series = new JTextField("Getting Grafik Card Series ...", 30);
 		Series.setEditable(false);
 		Series.setBounds(53, 36, 250, 50);
 		Series.setFont(new Font("Impact", 0, 20));
-		background.add(this.Series);
+		add(this.Series);
 
 		ExactName = new JTextField("Waiting for Series", 20);
 		ExactName.setEditable(false);
 		ExactName.setFont(new Font("Impact", 0, 20));
 		ExactName.setBounds(53, 106, 250, 50);
-		background.add(this.ExactName);
+		add(this.ExactName);
 
 		PoolInfo = new JButton("Pool Information");
 		PoolInfo.setBounds(503, 36, 250, 50);
-		background.add(this.PoolInfo);
+		add(this.PoolInfo);
 
 		MiningInfo = new JButton("Mining Information");
 		MiningInfo.setBounds(503, 106, 250, 50);
-		background.add(this.MiningInfo);
+		add(this.MiningInfo);
 
 		Walletaddress = new JTextField("@Walletaddress", 30);
 		Walletaddress.setBounds(241, 256, 325, 40);
 		Walletaddress.setFont(new Font("Impact", 0, 20));
-		background.add(this.Walletaddress);
+		add(this.Walletaddress);
 
 		StartMining = new JButton("Start Mining");
 		StartMining.setEnabled(false);
 		StartMining.setBounds(253, 346, 300, 125);
-		background.add(this.StartMining);
+		add(this.StartMining);
 
 		setVisible(true);
 		thehandler handler = new thehandler();
@@ -81,12 +80,13 @@ extends JFrame
 		PoolInfo.addActionListener(handler);
 		MiningInfo.addActionListener(handler);
 		StartMining.addActionListener(handler);
+		
+		repaint();
 	}
 
 	private class thehandler
 	implements ActionListener
 	{
-		private thehandler() {}
 		PrintWriter writer;
 
 		public void actionPerformed(ActionEvent e)
@@ -94,44 +94,57 @@ extends JFrame
 			if (e.getSource() == StartMining)
 			{
 				System.out.println(Walletaddress.getText().toString() + " " + ExactName.getText().toString());
-				
+
 				if (Main.GrakaSeries.contains("AMD"))
 				{
 					Main.Batchfile = "cgminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.AMD.get(ExactName.getText().toString());
-					
+
 				} 
 				else if (Main.GrakaSeries.contains("NVIDEA")) 
 				{
 					Main.Batchfile = "cudaminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.NVIDEA.get(ExactName.getText().toString());
 				}
-				
+
 				JOptionPane.showMessageDialog(null, Main.Batchfile);
 				try { 
-		            writer = new PrintWriter(new FileWriter("test.bat")); 
-		            writer.println(Main.Batchfile); 
-		        } catch (IOException ioe) { 
-		            ioe.printStackTrace(); 
-		        } finally { 
-		            if (writer != null) 
-		                writer.flush(); 
-		        } 
+					writer = new PrintWriter(new FileWriter("test.bat")); 
+					writer.println(Main.Batchfile); 
+				} catch (IOException ioe) { 
+					ioe.printStackTrace(); 
+				} finally { 
+					if (writer != null) 
+						writer.flush(); 
+				} 
 			}
 			if(e.getSource() == PoolInfo)
 			{		
-				
-					JOptionPane.showMessageDialog(null, "http://");
-					
+
+				JOptionPane.showMessageDialog(null, "http://");
+
 			}
 			if(e.getSource() == MiningInfo)
 			{
-				
+
 				JOptionPane.showMessageDialog(null, "InArbeit");
-				
+
 			}
 		}
 	}
-	
-	
+
+	class DrawPane extends JPanel{
+		public void paintComponent(Graphics g){
+			g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
+			if(ExactNameRight == true){
+				g.setColor(Color.GREEN);
+			}else if(ExactNameRight == false){
+				g.setColor(Color.RED);
+			}
+			g.fillOval(600, 256, 40, 40);
+		}
+	}
+
+
+
 	public void CheckExactName()
 	{
 		String p = ExactName.getText().toString();
@@ -141,13 +154,17 @@ extends JFrame
 		{
 			if ((p.contains("AMD")) || (p.contains("GeForce"))) {
 				StartMining.setEnabled(true);
+				ExactNameRight = true;
 			}
 		}
 		else {
 			StartMining.setEnabled(false);
+			ExactNameRight = false;
 		}
+		
+		repaint();
 	}
-	
-	
-	
+
+
+
 }
