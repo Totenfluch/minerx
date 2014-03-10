@@ -10,6 +10,7 @@ public class Specs
 
 public static void initSpecs()
   {
+	AMD = new HashMap();
     AMD.put("AMD Radeon HD 6450", " --shaders 160 --intensity 8 --worksize 64 --gpu-memclock 900 --gpu-engine 725");
     AMD.put("AMD Radeon R9 270x", "-w 256 -I 19 --shaders 1280 --gpu-memclock 1500 --gpu-engine 1125 --thread-concurrency 160000");
     AMD.put("AMD Radeon R9 270", "-I 19 -w 256 --thread-concurrency 16000 --gpu-memclock 1500 --gpu-engine 1125");
