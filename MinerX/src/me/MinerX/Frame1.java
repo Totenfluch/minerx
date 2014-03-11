@@ -116,8 +116,12 @@ extends JFrame
 				}
 				
 				try {
-					Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\mine.bat");
-				} catch (IOException e1) {
+					
+					//Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\mine.bat");
+					Process process2=Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\"+folderpath + "\\mine.bat",
+					        null, new File(System.getProperty("user.dir")+"\\"+folderpath));
+					process2.waitFor();
+				} catch (IOException | InterruptedException e1) {
 					e1.printStackTrace();
 				}
 			}

@@ -12,63 +12,63 @@ import javax.swing.Timer;
 
 public class Main
 {
-  public static Frame1 frame1;
-  public static String GrakaSeries = "";
-  public static String Batchfile;
-  private static Timer timer;
-  private static ImageIcon img;
-  
-  public static void main(String[] args)
-  {
-    frame1 = new Frame1();
-    frame1.setVisible(true);
-    frame1.setLocationRelativeTo(null);
-    frame1.setDefaultCloseOperation(3);
-    URL imageURL2 = Main.class.getResource("/feathercoinIcon.png");
-    img = null;
-    if (imageURL2 != null) {
-      img = new ImageIcon(imageURL2);
-    }
-    frame1.setIconImage(img.getImage());
-    
-    Specs.initSpecs();
-    try
-    {
-    	String filePath = "./foo.txt";
-    	//File file = new File(filePath);
-    	//file.createNewFile();
-        ProcessBuilder pb = new ProcessBuilder("cmd.exe","/c","dxdiag","/t",filePath);
-        System.out.println("-- Executing dxdiag command --");
-        Process p = pb.start();
-        p.waitFor();
-      
-      BufferedReader br = new BufferedReader(new FileReader(filePath));
-      String line;
-      while ((line = br.readLine()) != null)
-      {
-        if (((line.trim().startsWith("Card name:")) || (line.trim().startsWith("Current Mode:"))) && 
-          (line.trim().startsWith("Card name:")))
-        {
-          GrakaSeries = line.trim().replace("Card name: ", "");
-          frame1.Series.setText(GrakaSeries);
-          frame1.ExactName.setText(GrakaSeries.replace(" Series", ""));
-          frame1.ExactName.setEditable(true);
-        }
-      }
-      br.close();
-    }
-    catch (IOException|InterruptedException ex)
-    {
-      ex.printStackTrace();
-    }
-    timer = new Timer(10, new ActionListener()
-    {
-      public void actionPerformed(ActionEvent e)
-      {
-        Main.frame1.CheckExactName();
-      }
-    });
-    timer.start();
-  }
-  
+	public static Frame1 frame1;
+	public static String GrakaSeries = "";
+	public static String Batchfile;
+	private static Timer timer;
+	private static ImageIcon img;
+
+	public static void main(String[] args)
+	{
+		frame1 = new Frame1();
+		frame1.setVisible(true);
+		frame1.setLocationRelativeTo(null);
+		frame1.setDefaultCloseOperation(3);
+		URL imageURL2 = Main.class.getResource("/feathercoinIcon.png");
+		img = null;
+		if (imageURL2 != null) {
+			img = new ImageIcon(imageURL2);
+		}
+		frame1.setIconImage(img.getImage());
+		
+		Specs.initSpecs();
+		timer = new Timer(10, new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				Main.frame1.CheckExactName();
+			}
+		});
+		timer.start();
+		try
+		{
+			String filePath = "./foo.txt";
+			//File file = new File(filePath);
+			//file.createNewFile();
+			ProcessBuilder pb = new ProcessBuilder("cmd.exe","/c","dxdiag","/t",filePath);
+			System.out.println("-- Executing dxdiag command --");
+			Process p = pb.start();
+			p.waitFor();
+
+			BufferedReader br = new BufferedReader(new FileReader(filePath));
+			String line;
+			while ((line = br.readLine()) != null)
+			{
+				if (((line.trim().startsWith("Card name:")) || (line.trim().startsWith("Current Mode:"))) && 
+						(line.trim().startsWith("Card name:")))
+				{
+					GrakaSeries = line.trim().replace("Card name: ", "");
+					frame1.Series.setText(GrakaSeries);
+					frame1.ExactName.setText(GrakaSeries.replace(" Series", ""));
+					frame1.ExactName.setEditable(true);
+				}
+			}
+			br.close();
+		}
+		catch (IOException|InterruptedException ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+
 }
