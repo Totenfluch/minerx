@@ -34,7 +34,7 @@ extends JFrame
 		setSize(807, 530);
 		setUndecorated(false);
 		setResizable(false);
-		
+
 
 		setContentPane(new DrawPane());
 		setLayout(null);
@@ -75,7 +75,7 @@ extends JFrame
 		PoolInfo.addActionListener(handler);
 		MiningInfo.addActionListener(handler);
 		StartMining.addActionListener(handler);
-		
+
 		repaint();
 	}
 
@@ -163,7 +163,7 @@ extends JFrame
 		{
 			check1 = true;
 			ExactWalletAddress = true;
-			
+
 		}
 		else {
 			check1 = false;
@@ -172,7 +172,7 @@ extends JFrame
 		}
 		if((f != "null") && (f != null) || (g != "null") && (g != null))
 		{
-			
+
 			if ((p.contains("AMD")) || (p.contains("NVIDEA"))) {
 				check2 = true;
 				ExactNameRight = true;
@@ -182,11 +182,16 @@ extends JFrame
 				StartMining.setEnabled(false);
 				ExactNameRight = false;
 			}
+		}else{
+			check2 = false;
+			StartMining.setEnabled(false);
+			ExactNameRight = false;
 		}
+		
 		if(check1 == true && check2 == true){
 			StartMining.setEnabled(true);
 		}
-		
+
 		repaint();
 	}
 
