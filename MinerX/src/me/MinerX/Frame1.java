@@ -1,7 +1,5 @@
 package me.MinerX;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -12,7 +10,6 @@ import java.io.PrintWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -28,9 +25,6 @@ extends JFrame
 	public JButton PoolInfo;
 	public JButton MiningInfo;
 	private JButton StartMining;
-	private JLabel background;
-	private JLabel checkcolorR;
-	private JLabel checkcolorG;
 	private boolean ExactNameRight = false;
 
 	public Frame1()
@@ -132,14 +126,15 @@ extends JFrame
 	}
 
 	class DrawPane extends JPanel{
+		private static final long serialVersionUID = 1L;
+
 		public void paintComponent(Graphics g){
 			g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
 			if(ExactNameRight == true){
-				g.setColor(Color.GREEN);
+				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 600, 256, 40, 40, null);
 			}else if(ExactNameRight == false){
-				g.setColor(Color.RED);
+				g.drawImage(ResourceLoader.ImageLoad("/reddot.png"), 600, 256, 40, 40, null);
 			}
-			g.fillOval(600, 256, 40, 40);
 		}
 	}
 
