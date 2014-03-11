@@ -99,7 +99,7 @@ extends JFrame
 				} 
 				else if (Main.GrakaSeries.contains("NVIDA")) 
 				{
-					Main.Batchfile = "cudaminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDA.get(ExactName.getText().toString());
+					Main.Batchfile = "cudaminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
 					folderpath = "cudaminer\\x64";
 				}
 
@@ -170,7 +170,7 @@ extends JFrame
 	{
 		String p = ExactName.getText().toString();
 		String f = (String)Specs.AMD.get(p);
-		String g = (String)Specs.NVIDA.get(p);
+		String g = (String)Specs.NVIDIA.get(p);
 		boolean check1 = false;
 		boolean check2 = false;
 		if (!Walletaddress.getText().equals("@Walletaddress") && Walletaddress.getText().length() == 34)
