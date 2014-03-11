@@ -95,12 +95,12 @@ extends JFrame
 				if (Main.GrakaSeries.contains("AMD"))
 				{
 					Main.Batchfile = "cgminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.AMD.get(ExactName.getText().toString());
-					folderpath = "AMD";
+					folderpath = "cgminer";
 				} 
 				else if (Main.GrakaSeries.contains("NVIDA")) 
 				{
 					Main.Batchfile = "cudaminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.NVIDA.get(ExactName.getText().toString());
-					folderpath = "NVIDA";
+					folderpath = "cudaminer\\x64";
 				}
 
 				//JOptionPane.showMessageDialog(null, Main.Batchfile);
