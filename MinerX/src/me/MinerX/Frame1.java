@@ -95,9 +95,9 @@ extends JFrame
 					Main.Batchfile = "cgminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.AMD.get(ExactName.getText().toString());
 
 				} 
-				else if (Main.GrakaSeries.contains("NVIDEA")) 
+				else if (Main.GrakaSeries.contains("NVIDA")) 
 				{
-					Main.Batchfile = "cudaminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.NVIDEA.get(ExactName.getText().toString());
+					Main.Batchfile = "cudaminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.NVIDA.get(ExactName.getText().toString());
 				}
 
 				JOptionPane.showMessageDialog(null, Main.Batchfile);
@@ -156,7 +156,7 @@ extends JFrame
 	{
 		String p = ExactName.getText().toString();
 		String f = (String)Specs.AMD.get(p);
-		String g = (String)Specs.NVIDEA.get(p);
+		String g = (String)Specs.NVIDA.get(p);
 		boolean check1 = false;
 		boolean check2 = false;
 		if (!Walletaddress.getText().equals("@Walletaddress") && Walletaddress.getText().length() == 34)
