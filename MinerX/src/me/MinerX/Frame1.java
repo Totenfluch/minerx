@@ -94,12 +94,12 @@ extends JFrame
 
 				if (Main.GrakaSeries.contains("AMD"))
 				{
-					Main.Batchfile = "cgminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.AMD.get(ExactName.getText().toString());
+					Main.Batchfile = "cgminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
 					folderpath = "cgminer";
 				} 
 				else if (Main.GrakaSeries.contains("NVIDA")) 
 				{
-					Main.Batchfile = "cudaminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.NVIDA.get(ExactName.getText().toString());
+					Main.Batchfile = "cudaminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDA.get(ExactName.getText().toString());
 					folderpath = "cudaminer\\x64";
 				}
 
@@ -116,7 +116,7 @@ extends JFrame
 				}
 				
 				try {
-					Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\"+folderpath+"\\mine.bat");
+					Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\mine.bat");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
