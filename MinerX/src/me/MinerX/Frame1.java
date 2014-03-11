@@ -26,6 +26,7 @@ extends JFrame
 	public JButton MiningInfo;
 	private JButton StartMining;
 	private boolean ExactNameRight = false;
+	private boolean ExactWalletAddress = false;
 
 	public Frame1()
 	{
@@ -130,10 +131,21 @@ extends JFrame
 
 		public void paintComponent(Graphics g){
 			g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
-			if(ExactNameRight == true){
-				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 600, 256, 40, 40, null);
-			}else if(ExactNameRight == false){
-				g.drawImage(ResourceLoader.ImageLoad("/reddot.png"), 600, 256, 40, 40, null);
+			if(ExactWalletAddress == true)
+			{
+				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 180, 258, 35, 35, null);
+			}
+			else if(ExactWalletAddress == false)
+			{
+				g.drawImage(ResourceLoader.ImageLoad("/reddot.png"), 180, 258, 35, 35, null);
+			}
+			if(ExactNameRight == true)
+			{
+				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 10, 115, 35, 35, null);
+			}
+			else if(ExactNameRight == false)
+			{
+				g.drawImage(ResourceLoader.ImageLoad("/reddot.png"), 10, 115, 35, 35, null);
 			}
 		}
 	}
@@ -145,16 +157,34 @@ extends JFrame
 		String p = ExactName.getText().toString();
 		String f = (String)Specs.AMD.get(p);
 		String g = (String)Specs.NVIDEA.get(p);
-		if ((((f != "null") && (f != null)) || (g != "null") && (g != null)) && (!Walletaddress.getText().equals("@Walletaddress") && Walletaddress.getText().length() == 34))
+		boolean check1 = false;
+		boolean check2 = false;
+		if (!Walletaddress.getText().equals("@Walletaddress") && Walletaddress.getText().length() == 34)
 		{
-			if ((p.contains("AMD")) || (p.contains("GeForce"))) {
-				StartMining.setEnabled(true);
-				ExactNameRight = true;
-			}
+			check1 = true;
+			ExactWalletAddress = true;
+			
 		}
 		else {
+			check1 = false;
 			StartMining.setEnabled(false);
-			ExactNameRight = false;
+			ExactWalletAddress = false;
+		}
+		if((f != "null") && (f != null) || (g != "null") && (g != null))
+		{
+			
+			if ((p.contains("AMD")) || (p.contains("NVIDEA"))) {
+				check2 = true;
+				ExactNameRight = true;
+			}
+			else{
+				check2 = false;
+				StartMining.setEnabled(false);
+				ExactNameRight = false;
+			}
+		}
+		if(check1 == true && check2 == true){
+			StartMining.setEnabled(true);
 		}
 		
 		repaint();

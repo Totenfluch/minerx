@@ -3,6 +3,7 @@ package me.MinerX;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -35,6 +36,8 @@ public class Main
     try
     {
     	String filePath = "./foo.txt";
+    	//File file = new File(filePath);
+    	//file.createNewFile();
         ProcessBuilder pb = new ProcessBuilder("cmd.exe","/c","dxdiag","/t",filePath);
         System.out.println("-- Executing dxdiag command --");
         Process p = pb.start();
