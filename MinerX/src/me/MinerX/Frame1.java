@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -83,6 +84,7 @@ extends JFrame
 	implements ActionListener
 	{
 		PrintWriter writer;
+		String folderpath;
 
 		public void actionPerformed(ActionEvent e)
 		{
@@ -93,23 +95,31 @@ extends JFrame
 				if (Main.GrakaSeries.contains("AMD"))
 				{
 					Main.Batchfile = "cgminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.AMD.get(ExactName.getText().toString());
-
+					folderpath = "AMD";
 				} 
 				else if (Main.GrakaSeries.contains("NVIDA")) 
 				{
 					Main.Batchfile = "cudaminer --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -px tflags " + (String)Specs.NVIDA.get(ExactName.getText().toString());
+					folderpath = "NVIDA";
 				}
 
-				JOptionPane.showMessageDialog(null, Main.Batchfile);
+				//JOptionPane.showMessageDialog(null, Main.Batchfile);
 				try { 
-					writer = new PrintWriter(new FileWriter("test.bat")); 
+					writer = new PrintWriter(new FileWriter(System.getProperty("user.dir")+"\\"+folderpath+"\\mine.bat")); 
 					writer.println(Main.Batchfile); 
 				} catch (IOException ioe) { 
 					ioe.printStackTrace(); 
 				} finally { 
 					if (writer != null) 
-						writer.flush(); 
-				} 
+						writer.flush();
+						writer.close();
+				}
+				
+				try {
+					Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\"+folderpath+"\\mine.bat");
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 			if(e.getSource() == PoolInfo)
 			{		
