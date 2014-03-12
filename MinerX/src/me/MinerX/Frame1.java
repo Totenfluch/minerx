@@ -99,7 +99,7 @@ extends JFrame
 				} 
 				else if (Main.GrakaSeries.contains("NVIDIA")) 
 				{
-					Main.Batchfile = "cudaminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
+					Main.Batchfile = "cudaminer.exe -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
 					folderpath = "cudaminer\\x64";
 				}
 
