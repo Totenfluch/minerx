@@ -258,7 +258,7 @@ extends JFrame
 					Walletaddress.setEnabled(true);
 					ExactName.setEnabled(true);
 					Main.ExpertMode = false;
-					ExperModeField.setText("cgminer --script -o http://...");
+					ExperModeField.setText("cgminer --scrypt -o http://...");
 				}
 			}
 		}
