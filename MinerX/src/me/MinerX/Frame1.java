@@ -97,7 +97,7 @@ extends JFrame
 					Main.Batchfile = "cgminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
 					folderpath = "cgminer";
 				} 
-				else if (Main.GrakaSeries.contains("NVIDA")) 
+				else if (Main.GrakaSeries.contains("NVIDIA")) 
 				{
 					Main.Batchfile = "cudaminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
 					folderpath = "cudaminer\\x64";
@@ -112,14 +112,14 @@ extends JFrame
 				} finally { 
 					if (writer != null) 
 						writer.flush();
-						writer.close();
+					writer.close();
 				}
-				
+
 				try {
-					
+
 					//Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\mine.bat");
 					Process process2=Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\"+folderpath + "\\mine.bat",
-					        null, new File(System.getProperty("user.dir")+"\\"+folderpath));
+							null, new File(System.getProperty("user.dir")+"\\"+folderpath));
 					process2.waitFor();
 				} catch (IOException | InterruptedException e1) {
 					e1.printStackTrace();
@@ -187,7 +187,7 @@ extends JFrame
 		if((f != "null") && (f != null) || (g != "null") && (g != null))
 		{
 
-			if ((p.contains("AMD")) || (p.contains("NVIDEA"))) {
+			if ((p.contains("AMD")) || (p.contains("NVIDIA"))) {
 				check2 = true;
 				ExactNameRight = true;
 			}
@@ -201,7 +201,7 @@ extends JFrame
 			StartMining.setEnabled(false);
 			ExactNameRight = false;
 		}
-		
+
 		if(check1 == true && check2 == true){
 			StartMining.setEnabled(true);
 		}

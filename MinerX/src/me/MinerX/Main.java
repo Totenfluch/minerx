@@ -30,7 +30,7 @@ public class Main
 			img = new ImageIcon(imageURL2);
 		}
 		frame1.setIconImage(img.getImage());
-		
+
 		Specs.initSpecs();
 		timer = new Timer(10, new ActionListener()
 		{
