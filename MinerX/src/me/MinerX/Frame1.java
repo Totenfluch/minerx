@@ -5,6 +5,10 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -105,7 +109,7 @@ extends JFrame
 		ExpertModeCheckBox.setText("Expert Mode");
 		add(ExpertModeCheckBox);
 
-		ExperModeField = new JTextField("", 20);
+		ExperModeField = new JTextField("cgminer --script -o http://...", 20);
 		ExperModeField.setBounds(56, 200, 695, 30);
 		ExperModeField.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		ExperModeField.setEnabled(false);
@@ -116,7 +120,46 @@ extends JFrame
 		MiningInfo.addActionListener(handler);
 		StartMining.addActionListener(handler);
 		ExpertModeCheckBox.addActionListener(handler);
+		
+		ExperModeField.addKeyListener(new KeyListener(){
 
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				if(ExperModeField.getText().equals("cgminer --script -o http://...")){
+					ExperModeField.setText("");
+				}
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {}
+
+			@Override
+			public void keyReleased(KeyEvent e) {}
+		
+		});
+		
+		
+		ExperModeField.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseClicked(MouseEvent e){
+				if(ExperModeField.getText().equals("cgminer --script -o http://...")){
+					ExperModeField.setText("");
+				}
+			}
+
+			public void mouseEntered(MouseEvent arg0) {
+				if(ExperModeField.getText().equals("cgminer --script -o http://...")){
+					ExperModeField.setText("");
+				}
+			}
+
+			public void mouseExited(MouseEvent arg0) {
+				if(ExperModeField.getText().equals("")){
+					ExperModeField.setText("cgminer --script -o http://...");
+				}
+			}
+		});
+		
 		repaint();
 	}
 
@@ -215,6 +258,7 @@ extends JFrame
 					Walletaddress.setEnabled(true);
 					ExactName.setEnabled(true);
 					Main.ExpertMode = false;
+					ExperModeField.setText("cgminer --script -o http://...");
 				}
 			}
 		}
