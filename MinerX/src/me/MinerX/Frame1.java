@@ -45,6 +45,7 @@ extends JFrame
 		setLayout(null);
 		setSize(807, 530);
 		setUndecorated(false);
+		setLocationRelativeTo(null);
 		setResizable(false);
 
 
@@ -269,6 +270,7 @@ extends JFrame
 
 		public void paintComponent(Graphics g){
 			g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
+			g.drawString(OtherStuff.pFTCPriceinUSD, 600, 350);
 			if(ExactWalletAddress == true)
 			{
 				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 180, 258, 35, 35, null);

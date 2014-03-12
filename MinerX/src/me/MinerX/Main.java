@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -23,7 +24,6 @@ public class Main
 	{
 		frame1 = new Frame1();
 		frame1.setVisible(true);
-		frame1.setLocationRelativeTo(null);
 		frame1.setDefaultCloseOperation(3);
 		URL imageURL2 = Main.class.getResource("/feathercoinIcon.png");
 		img = null;
@@ -33,6 +33,11 @@ public class Main
 		frame1.setIconImage(img.getImage());
 
 		Specs.initSpecs();
+		try {
+			OtherStuff.getFTCPriceUSD();
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
 		timer = new Timer(10, new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
