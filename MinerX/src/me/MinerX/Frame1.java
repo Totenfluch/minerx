@@ -1,5 +1,6 @@
 package me.MinerX;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -9,10 +10,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 
@@ -28,6 +32,9 @@ extends JFrame
 	private JButton StartMining;
 	private boolean ExactNameRight = false;
 	private boolean ExactWalletAddress = false;
+	private JTextField ExperModeField;
+	private JCheckBox ExpertModeCheckBox;
+	private JRadioButton expertamd, experenv;
 
 	public Frame1()
 	{
@@ -39,6 +46,25 @@ extends JFrame
 
 		setContentPane(new DrawPane());
 		setLayout(null);
+
+		expertamd = new JRadioButton("AMD");
+		expertamd.setBounds(56, 240, 100, 20);
+		expertamd.setVisible(false);
+		expertamd.setEnabled(false);
+		expertamd.setBackground(Color.WHITE);
+		expertamd.setSelected(true);
+		add(expertamd);
+
+		experenv = new JRadioButton("NVIDIA");
+		experenv.setBounds(56, 260, 100, 20);
+		experenv.setVisible(false);
+		experenv.setEnabled(false);
+		experenv.setBackground(Color.WHITE);
+		add(experenv);
+
+		ButtonGroup toggle = new ButtonGroup();
+		toggle.add(expertamd);
+		toggle.add(experenv);
 
 		Series = new JTextField("Getting Grafik Card Series ...", 30);
 		Series.setEditable(false);
@@ -73,9 +99,23 @@ extends JFrame
 		setVisible(true);
 		thehandler handler = new thehandler();
 
+		ExpertModeCheckBox = new JCheckBox("Expert Mode");
+		ExpertModeCheckBox.setBounds(56, 160, 100, 20);
+		ExpertModeCheckBox.setBackground(Color.WHITE);
+		ExpertModeCheckBox.setText("Expert Mode");
+		add(ExpertModeCheckBox);
+
+		ExperModeField = new JTextField("", 20);
+		ExperModeField.setBounds(56, 200, 695, 30);
+		ExperModeField.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		ExperModeField.setEnabled(false);
+		ExperModeField.setVisible(false);
+		add(ExperModeField);
+
 		PoolInfo.addActionListener(handler);
 		MiningInfo.addActionListener(handler);
 		StartMining.addActionListener(handler);
+		ExpertModeCheckBox.addActionListener(handler);
 
 		repaint();
 	}
@@ -90,9 +130,23 @@ extends JFrame
 		{
 			if (e.getSource() == StartMining)
 			{
-				System.out.println(Walletaddress.getText().toString() + " " + ExactName.getText().toString());
-
-				if (Main.GrakaSeries.contains("AMD"))
+				if(Main.ExpertMode == true){
+					if((ExperModeField.getText().contains("cgminer") || ExperModeField.getText().contains("cudaminer"))
+							&& ExperModeField.getText().contains("-u") 
+							&& (ExperModeField.getText().contains("http://") || ExperModeField.getText().contains("https://"))){
+						
+						Main.Batchfile = ExperModeField.getText();
+						if(expertamd.isSelected() == true){
+							folderpath = "cgminer";
+						}else if(experenv.isSelected() == true){
+							folderpath = "cudaminer\\x64";
+						}
+					}else{
+						JOptionPane.showMessageDialog(null, "I thought you were so pro lol");
+						return;
+					}
+				}
+				else if (Main.GrakaSeries.contains("AMD"))
 				{
 					Main.Batchfile = "cgminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
 					folderpath = "cgminer";
@@ -137,6 +191,32 @@ extends JFrame
 				JOptionPane.showMessageDialog(null, "InArbeit");
 
 			}
+
+			if(e.getSource() == ExpertModeCheckBox){
+				if(ExpertModeCheckBox.isSelected() == true){
+					ExperModeField.setEnabled(true);
+					ExperModeField.setVisible(true);
+					experenv.setVisible(true);
+					experenv.setEnabled(true);
+					expertamd.setVisible(true);
+					expertamd.setEnabled(true);
+					Series.setEnabled(false);
+					Walletaddress.setEnabled(false);
+					ExactName.setEnabled(false);
+					Main.ExpertMode = true;
+				}else{
+					ExperModeField.setEnabled(false);
+					ExperModeField.setVisible(false);
+					experenv.setVisible(false);
+					experenv.setEnabled(false);
+					expertamd.setVisible(false);
+					expertamd.setEnabled(false);
+					Series.setEnabled(true);
+					Walletaddress.setEnabled(true);
+					ExactName.setEnabled(true);
+					Main.ExpertMode = false;
+				}
+			}
 		}
 	}
 
@@ -173,7 +253,7 @@ extends JFrame
 		String g = (String)Specs.NVIDIA.get(p);
 		boolean check1 = false;
 		boolean check2 = false;
-		if (!Walletaddress.getText().equals("@Walletaddress") && Walletaddress.getText().length() == 34)
+		if ((!Walletaddress.getText().equals("@Walletaddress") && Walletaddress.getText().length() == 34)  || Main.ExpertMode == true)
 		{
 			check1 = true;
 			ExactWalletAddress = true;
@@ -184,10 +264,10 @@ extends JFrame
 			StartMining.setEnabled(false);
 			ExactWalletAddress = false;
 		}
-		if((f != "null") && (f != null) || (g != "null") && (g != null))
+		if((f != "null") && (f != null) || (g != "null") && (g != null) || Main.ExpertMode == true)
 		{
 
-			if ((p.contains("AMD")) || (p.contains("NVIDIA"))) {
+			if ((p.contains("AMD")) || (p.contains("NVIDIA")) || Main.ExpertMode == true) {
 				check2 = true;
 				ExactNameRight = true;
 			}

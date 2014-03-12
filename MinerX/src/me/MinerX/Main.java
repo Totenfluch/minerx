@@ -17,6 +17,7 @@ public class Main
 	public static String Batchfile;
 	private static Timer timer;
 	private static ImageIcon img;
+	public static boolean ExpertMode = false;
 
 	public static void main(String[] args)
 	{
