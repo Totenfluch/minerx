@@ -41,6 +41,7 @@ extends JFrame
 	private JCheckBox ExpertModeCheckBox;
 	private JRadioButton expertamd, experenv;
 	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 25);
+	
 
 	public Frame1()
 	{
