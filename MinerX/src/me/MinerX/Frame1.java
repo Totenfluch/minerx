@@ -39,7 +39,6 @@ extends JFrame
 	private boolean ExactWalletAddress = false;
 	private JTextField ExperModeField;
 	private JCheckBox ExpertModeCheckBox;
-	public JButton Donation;
 	private JRadioButton expertamd, experenv;
 	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 25);
 
@@ -103,11 +102,6 @@ extends JFrame
 		StartMining.setEnabled(false);
 		StartMining.setBounds(253, 346, 300, 125);
 		add(this.StartMining);
-		
-		Donation = new JButton("Donation");
-		Donation.setEnabled(true);
-		Donation.setBounds(53, 420, 100, 40);
-		add(this.Donation);
 
 		setVisible(true);
 		thehandler handler = new thehandler();
@@ -129,7 +123,6 @@ extends JFrame
 		CoinCalc.addActionListener(handler);
 		StartMining.addActionListener(handler);
 		ExpertModeCheckBox.addActionListener(handler);
-		Donation.addActionListener(handler);
 		
 		ExperModeField.addKeyListener(new KeyListener(){
 
@@ -252,10 +245,6 @@ extends JFrame
 					e1.printStackTrace();
 				}
 
-			}
-			if(e.getSource() == Donation){
-				
-				Main.frame2.setVisible(true);
 			}
 
 			if(e.getSource() == ExpertModeCheckBox){
