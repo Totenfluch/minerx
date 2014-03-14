@@ -52,10 +52,6 @@ public class Specs
 		AMD.put("AMD Radeon R9 290", " -I 20 -g 2 -w 512 --thread-concurrency 32765 --gpu-memclock 1500 --gpu-engine 990");
 		AMD.put("AMD Radeon R9 290x", "-I 20 -w 256 --thread-concurrency 32765");
 		
-		
-		
-
-
 		NVIDIA.put("NVIDIA GeForce GTX 760","-d 0 -i 0 -C 2 -l K12x18");
 		NVIDIA.put("NVIDIA GeForce GTX 780 Ti","-l T30x16 -i 1 -m 1 -H 1");
 		NVIDIA.put("NVIDIA GeForce 8800 GT","-H 1 (L27x3)");
@@ -87,8 +83,5 @@ public class Specs
 		NVIDIA.put("NVIDIA GeForce GTX 680","-H 1 -C 2 -m 1 -d 0 -l K16x16 -i 0");
 		NVIDIA.put("NVIDIA GeForce GTX 770","-D -H 1 -m 1 -d 0 -i 1 -l K16x16 -C 2");
 		NVIDIA.put("NVIDIA GeForce GTX TITAN","-d 0 -i 0 -C 2 -l K14x18");
-
-
-
 	}
 }
