@@ -33,12 +33,13 @@ extends JFrame
 	public JTextField Walletaddress;
 	public JTextField ExactName;
 	public JButton PoolInfo;
-	public JButton MiningInfo;
+	public JButton CoinCalc;
 	private JButton StartMining;
 	private boolean ExactNameRight = false;
 	private boolean ExactWalletAddress = false;
 	private JTextField ExperModeField;
 	private JCheckBox ExpertModeCheckBox;
+	public JButton Donation;
 	private JRadioButton expertamd, experenv;
 	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 25);
 
@@ -89,9 +90,9 @@ extends JFrame
 		PoolInfo.setBounds(503, 36, 250, 50);
 		add(this.PoolInfo);
 
-		MiningInfo = new JButton("Mining Information");
-		MiningInfo.setBounds(503, 106, 250, 50);
-		add(this.MiningInfo);
+		CoinCalc = new JButton("Feathercoin Calculator");
+		CoinCalc.setBounds(503, 106, 250, 50);
+		add(this.CoinCalc);
 
 		Walletaddress = new JTextField("@Walletaddress", 30);
 		Walletaddress.setBounds(241, 256, 325, 40);
@@ -102,6 +103,11 @@ extends JFrame
 		StartMining.setEnabled(false);
 		StartMining.setBounds(253, 346, 300, 125);
 		add(this.StartMining);
+		
+		Donation = new JButton("Donation");
+		Donation.setEnabled(true);
+		Donation.setBounds(53, 420, 100, 40);
+		add(this.Donation);
 
 		setVisible(true);
 		thehandler handler = new thehandler();
@@ -120,9 +126,10 @@ extends JFrame
 		add(ExperModeField);
 
 		PoolInfo.addActionListener(handler);
-		MiningInfo.addActionListener(handler);
+		CoinCalc.addActionListener(handler);
 		StartMining.addActionListener(handler);
 		ExpertModeCheckBox.addActionListener(handler);
+		Donation.addActionListener(handler);
 		
 		ExperModeField.addKeyListener(new KeyListener(){
 
@@ -188,7 +195,7 @@ extends JFrame
 							folderpath = "cudaminer\\x64";
 						}
 					}else{
-						JOptionPane.showMessageDialog(null, "I thought you were so pro lol");
+						JOptionPane.showMessageDialog(null, "Try Again.");
 						return;
 					}
 				}
@@ -203,7 +210,6 @@ extends JFrame
 					folderpath = "cudaminer\\x64";
 				}
 
-				//JOptionPane.showMessageDialog(null, Main.Batchfile);
 				try { 
 					writer = new PrintWriter(new FileWriter(System.getProperty("user.dir")+"\\"+folderpath+"\\mine.bat")); 
 					writer.println(Main.Batchfile); 
@@ -217,7 +223,6 @@ extends JFrame
 
 				try {
 
-					//Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\mine.bat");
 					Process process2=Runtime.getRuntime().exec("cmd /c start "+System.getProperty("user.dir")+"\\"+folderpath + "\\mine.bat",
 							null, new File(System.getProperty("user.dir")+"\\"+folderpath));
 					process2.waitFor();
@@ -237,11 +242,20 @@ extends JFrame
 				}
 
 			}
-			if(e.getSource() == MiningInfo)
+			if(e.getSource() == CoinCalc)
 			{
+				try {
+					OtherStuff.CoinCalc();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				}
 
-				JOptionPane.showMessageDialog(null, "Mining at 1% fee \n\nProfitCalc: http://feathercoin.com/calc/");
-
+			}
+			if(e.getSource() == Donation){
+				
+				Main.frame2.setVisible(true);
 			}
 
 			if(e.getSource() == ExpertModeCheckBox){

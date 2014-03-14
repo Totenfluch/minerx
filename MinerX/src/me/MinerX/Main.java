@@ -29,11 +29,13 @@ public class Main
 	private static Timer timer;
 	private static ImageIcon img;
 	public static boolean ExpertMode = false;
+	public static Frame2 frame2;
 
 	public static void main(String[] args) throws IOException
 	{
 		frame1 = new Frame1();
 		frame1.setDefaultCloseOperation(3);
+		frame2 = new Frame2();
 		URL imageURL2 = Main.class.getResource("/feathercoinIcon.png");
 		img = null;
 		if (imageURL2 != null) {

@@ -78,8 +78,19 @@ public class OtherStuff {
 		          java.net.URI uri = new java.net.URI("http://mine-ftc.co.uk:19327/static/index.html");
 		              desktop.browse(uri);
 		        }
-		      } 
-		}
+		  } 
+	}
+	
+	public static void CoinCalc() throws IOException, URISyntaxException {
+		  if(java.awt.Desktop.isDesktopSupported() ) {
+		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+
+		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
+		          java.net.URI uri = new java.net.URI("http://Feathercoin.com/calc/");
+		              desktop.browse(uri);
+		        }
+		  } 
+	}
 }
 
 

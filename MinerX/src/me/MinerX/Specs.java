@@ -13,17 +13,47 @@ public class Specs
 	{
 		AMD = new HashMap<String, String>();
 		NVIDIA = new HashMap<String, String>();
-		AMD.put("AMD Radeon HD 6450", " --shaders 160 --intensity 8 --worksize 64 --gpu-memclock 900 --gpu-engine 725");
-		AMD.put("AMD Radeon R9 270x", "-w 256 -I 19 --shaders 1280 --gpu-memclock 1500 --gpu-engine 1125 --thread-concurrency 160000");
-		AMD.put("AMD Radeon R9 270", "-I 19 -w 256 --thread-concurrency 16000 --gpu-memclock 1500 --gpu-engine 1125");
-		AMD.put("AMD Radeon R9 280x", "-g 2 --worksize 256 -I 13 --thread-concurrency 8192 --gpu-engine 1050 --gpu-memclock 1500");
-		AMD.put("AMD Radeon HD 7970", "-I 13 -g 2 -w 256 --thread-concurrency 8192 --gpu-memclock 1250 --gpu-engine 1025");
-		AMD.put("AMD Radeon R9 290", " -I 20 -g 2 -w 512 --thread-concurrency 32765 --gpu-memclock 1500 --gpu-engine 990");
-		AMD.put("AMD Radeon HD 7950", "-w 256 -I 19 -s 1 -g 1 --gpu-powertune 3 --gpu-engine 1035 --gpu-memclock 1250 --lookup-gap 2 --thread-concurrency 24000");
+		AMD.put("AMD Radeon HD 4350", "-I 9 -g 1 -w 128 --thread-concurrency 2048");
+		AMD.put("AMD Radeon HD 4750", "-I 11 -g 1 -w 128 --thread-concurrency 1024");
+		AMD.put("AMD Radeon HD 4850", "-I 17 -g 1 -w 256 --thread-concurrency 3136");
+		AMD.put("AMD Radeon HD 4870", "-I 17 -g 1 -w 128 --thread-concurrency 6400");
+		AMD.put("AMD Radeon HD 4890", "-I 15 -g 1 -w 128 --thread-concurrency 6400");
+		AMD.put("AMD Radeon HD 5450", "-I 18 -w 256 --shaders 80");
+		AMD.put("AMD Radeon HD 5670", "-I 16 -g 2 -w 128 --thread-concurrency 3048");
+		AMD.put("AMD Radeon HD 5750", "-I 18 -g 1 -w 256 --thread-concurrency 6016");
+		AMD.put("AMD Radeon HD 5770", "-I 17 --thread-concurrency 7680");
+		AMD.put("AMD Radeon HD 5830", "-I 18 --thread-concurrency 5600");
+		AMD.put("AMD Radeon HD 5850", "-I 19 -g 1 -w 256 --thread-concurrency 5824");
+		AMD.put("AMD Radeon HD 5870", "-I 18 -g 1 -w 256 --thread-concurrency 7500");
+		AMD.put("AMD Radeon HD 5970", "-I 20 -g 1 -w 128 --thread-concurrency 8000");
+		AMD.put("AMD Radeon HD 6320", "-I 9");
+		AMD.put("AMD Radeon HD 6450", "--shaders 160 --intensity 8 --worksize 64 --gpu-memclock 900 --gpu-engine 725");
+		AMD.put("AMD Radeon HD 6570", "-I 14 -g 1 --shaders 480");
+		AMD.put("AMD Radeon HD 6670", "-I 18 -g 1 -w 256 --thread-concurrency 2400");
+		AMD.put("AMD Radeon HD 6750", "-I 16 -g 1 -w 128 --thread-concurrency 5760");
+		AMD.put("AMD Radeon HD 6770", "-I 18 -g 1 -w 256 --thread-concurrency 8192");
+		AMD.put("AMD Radeon HD 6790", "-I 18 -g 1 -w 256 --thread-concurrency 4032");
+		AMD.put("AMD Radeon HD 6850", "-I 17 -g 2 -w 256 --thread-concurrency 3840");
+		AMD.put("AMD Radeon HD 6870", "-I 12 --gpu-memclock 760 --gpu-engine 850 --thread-concurrency 8192");
+		AMD.put("AMD Radeon HD 6930", "-I 18 -g 1 -w 256 --thread-concurrency 6400");
+		AMD.put("AMD Radeon HD 6950", "-I 15 -g 1 -w 256 -l 1 --thread-concurrency 6144");
+		AMD.put("AMD Radeon HD 6970", "-I 19 -w 256 --shaders 1536");
+		AMD.put("AMD Radeon HD 7750", "-I 12 --gpu-memclock 760 --gpu-engine 850 --thread-concurrency 8192");
+		AMD.put("AMD Radeon HD 7770", "-I 15 --worksize 256 -g 1 --thread-concurrency 8000");
+		AMD.put("AMD Radeon HD 7790", "-I 18 -g 1 -w 256 --thread-concurrency 8000");
 		AMD.put("AMD Radeon HD 7850", "-I 17 -g 1 --lookup-gap 2 -w 256 --thread-concurrency 10048 --gpu-engine 1200 --gpu-memclock 1250");
 		AMD.put("AMD Radeon HD 7870", "-I 12 -g 2 -w 256 --thread-concurrency 8192");
-		AMD.put("AMD Radeon HD 7750", "-I 12 --gpu-memclock 760 --gpu-engine 850 --thread-concurrency 8192");
-		AMD.put("AMD Radeon HD 6870", "-I 12 --gpu-memclock 760 --gpu-engine 850 --thread-concurrency 8192");
+		AMD.put("AMD Radeon HD 7950", "-w 256 -I 19 -s 1 -g 1 --gpu-powertune 3 --gpu-engine 1035 --gpu-memclock 1250 --lookup-gap 2 --thread-concurrency 24000");
+		AMD.put("AMD Radeon HD 7970", "-I 13 -g 2 -w 256 --thread-concurrency 8192 --gpu-memclock 1250 --gpu-engine 1025");
+		AMD.put("AMD Radeon HD 7990", "-I 13 -g 2 -w 256 --thread-concurrency 8192");
+		AMD.put("AMD Radeon R9 270", "-I 19 -w 256 --thread-concurrency 16000 --gpu-memclock 1500 --gpu-engine 1125");
+		AMD.put("AMD Radeon R9 270x", "-w 256 -I 19 --shaders 1280 --gpu-memclock 1500 --gpu-engine 1125 --thread-concurrency 160000");		
+		AMD.put("AMD Radeon R9 280x", "-g 2 --worksize 256 -I 13 --thread-concurrency 8192 --gpu-engine 1050 --gpu-memclock 1500");
+		AMD.put("AMD Radeon R9 290", " -I 20 -g 2 -w 512 --thread-concurrency 32765 --gpu-memclock 1500 --gpu-engine 990");
+		AMD.put("AMD Radeon R9 290x", "-I 20 -w 256 --thread-concurrency 32765");
+		
+		
+		
 
 
 		NVIDIA.put("NVIDIA GeForce GTX 760","-d 0 -i 0 -C 2 -l K12x18");
