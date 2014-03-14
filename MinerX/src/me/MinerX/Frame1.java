@@ -192,12 +192,12 @@ extends JFrame
 				}
 				else if (Main.GrakaSeries.contains("AMD"))
 				{
-					Main.Batchfile = "cgminer.exe --scrypt -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
+					Main.Batchfile = "cgminer.exe --scrypt -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
 					folderpath = "cgminer";
 				} 
 				else if (Main.GrakaSeries.contains("NVIDIA")) 
 				{
-					Main.Batchfile = "cudaminer.exe -o http://p2p.com:8080 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
+					Main.Batchfile = "cudaminer.exe -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
 					folderpath = "cudaminer\\x64";
 				}
 
@@ -270,7 +270,8 @@ extends JFrame
 
 		public void paintComponent(Graphics g){
 			g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
-			//g.drawString(OtherStuff.pFTCPriceinUSD, 600, 350);
+			g.drawString(OtherStuff.pFTCPriceinUSD, 630, 350);
+			g.drawString(OtherStuff.pFTCDiff, 630, 380);
 			if(ExactWalletAddress == true)
 			{
 				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 180, 258, 35, 35, null);

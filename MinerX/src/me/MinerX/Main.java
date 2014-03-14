@@ -35,6 +35,7 @@ public class Main
 		Specs.initSpecs();
 		try {
 			OtherStuff.getFTCPriceUSD();
+			OtherStuff.getFTCDiff();
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		}
