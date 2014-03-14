@@ -53,7 +53,6 @@ public class Main
 			//File file = new File(filePath);
 			//file.createNewFile();
 			ProcessBuilder pb = new ProcessBuilder("cmd.exe","/c","dxdiag","/t",filePath);
-			System.out.println("-- Executing dxdiag command --");
 			Process p = pb.start();
 			p.waitFor();
 

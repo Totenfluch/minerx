@@ -39,6 +39,7 @@ extends JFrame
 	private JTextField ExperModeField;
 	private JCheckBox ExpertModeCheckBox;
 	private JRadioButton expertamd, experenv;
+	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 25);
 
 	public Frame1()
 	{
@@ -270,8 +271,19 @@ extends JFrame
 
 		public void paintComponent(Graphics g){
 			g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
-			g.drawString(OtherStuff.pFTCPriceinUSD, 630, 350);
-			g.drawString(OtherStuff.pFTCDiff, 630, 380);
+			g.setFont(ftdefault);
+			if(OtherStuff.pFTCPriceinUSDisPulled == true){
+				g.drawString(OtherStuff.pFTCPriceinUSD, 575, 400);
+			}else{
+				g.drawString("Fetching USD Price...", 570, 400);
+			}
+			
+			if(OtherStuff.pFTCDiff != null && OtherStuff.pFTCDiff != "null"){
+				g.drawString(OtherStuff.pFTCDiff, 575, 430);
+			}else{
+				g.drawString("Fetching difficulty...", 570, 430);
+			}
+			
 			if(ExactWalletAddress == true)
 			{
 				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 180, 258, 35, 35, null);
