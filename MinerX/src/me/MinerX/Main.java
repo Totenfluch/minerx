@@ -1,3 +1,13 @@
+/**
+ * 
+ * 
+ * @author ChekaZ, Totenfluch
+ *
+ *
+ */
+
+
+
 package me.MinerX;
 
 import java.awt.event.ActionEvent;
@@ -23,7 +33,6 @@ public class Main
 	public static void main(String[] args) throws IOException
 	{
 		frame1 = new Frame1();
-		frame1.setVisible(true);
 		frame1.setDefaultCloseOperation(3);
 		URL imageURL2 = Main.class.getResource("/feathercoinIcon.png");
 		img = null;
@@ -31,7 +40,8 @@ public class Main
 			img = new ImageIcon(imageURL2);
 		}
 		frame1.setIconImage(img.getImage());
-
+		frame1.setVisible(true);
+		
 		Specs.initSpecs();
 		try {
 			OtherStuff.getFTCPriceUSD();
@@ -39,6 +49,7 @@ public class Main
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		}
+		
 		timer = new Timer(10, new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -47,11 +58,10 @@ public class Main
 			}
 		});
 		timer.start();
+		
 		try
 		{
 			String filePath = "./foo.txt";
-			//File file = new File(filePath);
-			//file.createNewFile();
 			ProcessBuilder pb = new ProcessBuilder("cmd.exe","/c","dxdiag","/t",filePath);
 			Process p = pb.start();
 			p.waitFor();

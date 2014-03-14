@@ -49,7 +49,7 @@ extends JFrame
 		setUndecorated(false);
 		setLocationRelativeTo(null);
 		setResizable(false);
-
+		setTitle("MinerX");
 
 		setContentPane(new DrawPane());
 		setLayout(null);

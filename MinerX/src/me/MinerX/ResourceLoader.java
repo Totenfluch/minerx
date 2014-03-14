@@ -10,7 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public final class ResourceLoader
+public class ResourceLoader
 {
 	public static Icon Iconload(String path)
 	{
