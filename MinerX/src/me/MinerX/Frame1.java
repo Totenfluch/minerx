@@ -32,6 +32,8 @@ extends JFrame
 	public JTextField Series;
 	public JTextField Walletaddress;
 	public JTextField ExactName;
+	public JTextField BTCaddress;
+	public JTextField FTCaddress;
 	public JButton PoolInfo;
 	public JButton CoinCalc;
 	private JButton StartMining;
@@ -103,6 +105,14 @@ extends JFrame
 		StartMining.setEnabled(false);
 		StartMining.setBounds(253, 346, 300, 125);
 		add(this.StartMining);
+		
+		BTCaddress = new JTextField("BTC: 15JCDD3g47KZEKN4qU3YWj75eRP7ru8JAZ");
+		BTCaddress.setBounds(53, 480, 300, 20);
+		add(BTCaddress);
+		
+		FTCaddress = new JTextField("FTC: 6sxjM96KMZ7t4AmDTUKDZdq82Nj931VQvY");
+		FTCaddress.setBounds(454, 480, 300, 20);
+		add(FTCaddress);
 
 		setVisible(true);
 		thehandler handler = new thehandler();
