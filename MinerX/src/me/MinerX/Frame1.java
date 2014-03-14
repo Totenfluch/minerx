@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
 
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -108,10 +109,16 @@ extends JFrame
 		
 		BTCaddress = new JTextField("BTC: 15JCDD3g47KZEKN4qU3YWj75eRP7ru8JAZ");
 		BTCaddress.setBounds(53, 480, 300, 20);
+		BTCaddress.setEditable(false);
+		BTCaddress.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
+		BTCaddress.setBackground(Color.WHITE);
 		add(BTCaddress);
 		
 		FTCaddress = new JTextField("FTC: 6sxjM96KMZ7t4AmDTUKDZdq82Nj931VQvY");
 		FTCaddress.setBounds(454, 480, 300, 20);
+		FTCaddress.setEditable(false);
+		FTCaddress.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
+		FTCaddress.setBackground(Color.WHITE);
 		add(FTCaddress);
 
 		setVisible(true);
