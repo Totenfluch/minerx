@@ -110,7 +110,7 @@ extends JFrame
 		ExpertModeCheckBox.setText("Expert Mode");
 		add(ExpertModeCheckBox);
 
-		ExperModeField = new JTextField("cgminer --script -o http://...", 20);
+		ExperModeField = new JTextField("cgminer --scrypt -o http://...", 20);
 		ExperModeField.setBounds(56, 200, 695, 30);
 		ExperModeField.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		ExperModeField.setEnabled(false);
@@ -126,7 +126,7 @@ extends JFrame
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				if(ExperModeField.getText().equals("cgminer --script -o http://...")){
+				if(ExperModeField.getText().equals("cgminer --scrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
@@ -143,20 +143,20 @@ extends JFrame
 		ExperModeField.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e){
-				if(ExperModeField.getText().equals("cgminer --script -o http://...")){
+				if(ExperModeField.getText().equals("cgminer --scrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
 
 			public void mouseEntered(MouseEvent arg0) {
-				if(ExperModeField.getText().equals("cgminer --script -o http://...")){
+				if(ExperModeField.getText().equals("cgminer --scrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
 
 			public void mouseExited(MouseEvent arg0) {
 				if(ExperModeField.getText().equals("")){
-					ExperModeField.setText("cgminer --script -o http://...");
+					ExperModeField.setText("cgminer --scrypt -o http://...");
 				}
 			}
 		});
@@ -270,7 +270,7 @@ extends JFrame
 
 		public void paintComponent(Graphics g){
 			g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
-			g.drawString(OtherStuff.pFTCPriceinUSD, 600, 350);
+			//g.drawString(OtherStuff.pFTCPriceinUSD, 600, 350);
 			if(ExactWalletAddress == true)
 			{
 				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 180, 258, 35, 35, null);

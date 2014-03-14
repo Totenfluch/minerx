@@ -20,7 +20,7 @@ public class Main
 	private static ImageIcon img;
 	public static boolean ExpertMode = false;
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		frame1 = new Frame1();
 		frame1.setVisible(true);
