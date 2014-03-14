@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -68,6 +69,17 @@ public class OtherStuff {
 		{
 		} 
 	}
+	
+	public static void poolInfo() throws IOException, URISyntaxException {
+		  if(java.awt.Desktop.isDesktopSupported() ) {
+		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+
+		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
+		          java.net.URI uri = new java.net.URI("http://mine-ftc.co.uk:19327/static/index.html");
+		              desktop.browse(uri);
+		        }
+		      } 
+		}
 }
 
 

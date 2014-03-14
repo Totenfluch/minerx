@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -227,13 +228,19 @@ extends JFrame
 			if(e.getSource() == PoolInfo)
 			{		
 
-				JOptionPane.showMessageDialog(null, "http://");
+				try {
+					OtherStuff.poolInfo();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				}
 
 			}
 			if(e.getSource() == MiningInfo)
 			{
 
-				JOptionPane.showMessageDialog(null, "InArbeit");
+				JOptionPane.showMessageDialog(null, "Mining at 1% fee \n\nProfitCalc: http://feathercoin.com/calc/");
 
 			}
 
