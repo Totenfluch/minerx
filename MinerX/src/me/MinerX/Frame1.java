@@ -110,6 +110,7 @@ extends JFrame
 		BTCaddress = new JTextField("BTC: 15JCDD3g47KZEKN4qU3YWj75eRP7ru8JAZ");
 		BTCaddress.setBounds(53, 480, 300, 20);
 		BTCaddress.setEditable(false);
+		BTCaddress.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		BTCaddress.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
 		BTCaddress.setBackground(Color.WHITE);
 		add(BTCaddress);
@@ -117,6 +118,7 @@ extends JFrame
 		FTCaddress = new JTextField("FTC: 6sxjM96KMZ7t4AmDTUKDZdq82Nj931VQvY");
 		FTCaddress.setBounds(454, 480, 300, 20);
 		FTCaddress.setEditable(false);
+		FTCaddress.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		FTCaddress.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
 		FTCaddress.setBackground(Color.WHITE);
 		add(FTCaddress);
