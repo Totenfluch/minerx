@@ -198,8 +198,7 @@ extends JFrame
 			{
 				if(Main.ExpertMode == true){
 					if((ExperModeField.getText().contains("cgminer") || ExperModeField.getText().contains("cudaminer"))
-							&& ExperModeField.getText().contains("-u") 
-							&& (ExperModeField.getText().contains("http://") || ExperModeField.getText().contains("https://"))){
+							&& ExperModeField.getText().contains("-u")){
 						
 						Main.Batchfile = ExperModeField.getText();
 						if(expertamd.isSelected() == true){
