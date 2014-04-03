@@ -286,7 +286,7 @@ extends JFrame
 					try {
 						OtherStuff.poolInfoDOGE();
 					} catch (IOException | URISyntaxException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 				}
@@ -367,7 +367,7 @@ extends JFrame
 				CoinCalc.setText("Such Profit?");
 				Walletaddress.setFont(dogedefault);
 				StartMining.setFont(dogedefault);
-				ExperModeField.setFont(dogedefault);
+				//ExperModeField.setFont(dogedefault);
 			}
 			else{
 				expertamd.setFont(normal);
@@ -379,7 +379,7 @@ extends JFrame
 				CoinCalc.setText("Feathercoin Calculator");
 				Walletaddress.setFont(normal);
 				StartMining.setFont(normal);
-				ExperModeField.setFont(normal);
+				//ExperModeField.setFont(normal);
 				
 			}
 			

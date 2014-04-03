@@ -13,6 +13,7 @@ package me.MinerX;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -34,7 +35,7 @@ public class Main
 	{
 		frame1 = new Frame1();
 		frame1.setDefaultCloseOperation(3);
-		URL imageURL2 = Main.class.getResource("/feathercoinIcon.png");
+		URL imageURL2 = Main.class.getResource("/Mining.png");
 		img = null;
 		if (imageURL2 != null) {
 			img = new ImageIcon(imageURL2);
@@ -46,6 +47,8 @@ public class Main
 		try {
 			OtherStuff.getFTCPriceUSD();
 			OtherStuff.getFTCDiff();
+			OtherStuff.getDOGEinBTC();
+			OtherStuff.getDOGEDiff();
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		}
