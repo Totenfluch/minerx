@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
 
-import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -37,13 +36,16 @@ extends JFrame
 	public JTextField FTCaddress;
 	public JButton PoolInfo;
 	public JButton CoinCalc;
+	public JRadioButton chooserftc, chooserdoge;
 	private JButton StartMining;
 	private boolean ExactNameRight = false;
 	private boolean ExactWalletAddress = false;
 	private JTextField ExperModeField;
 	private JCheckBox ExpertModeCheckBox;
 	private JRadioButton expertamd, experenv;
-	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 25);
+	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 20);
+	public Font dogedefault = new Font("Comic Sans MS", Font.BOLD, 18);
+	public Font normal = new Font("Times New Roman", Font.BOLD, 20);
 	
 
 	public Frame1()
@@ -72,10 +74,29 @@ extends JFrame
 		experenv.setEnabled(false);
 		experenv.setBackground(Color.WHITE);
 		add(experenv);
+		
+		chooserdoge = new JRadioButton("DOGE");
+		chooserdoge.setBounds(650,280,100, 20);
+		chooserdoge.setVisible(true);
+		chooserdoge.setEnabled(true);
+		chooserdoge.setBackground(Color.WHITE);
+		add(chooserdoge);
+		
+		chooserftc = new JRadioButton("FTC");
+		chooserftc.setBounds(650,250,100, 20);
+		chooserftc.setVisible(true);
+		chooserftc.setEnabled(true);
+		chooserftc.setBackground(Color.WHITE);
+		chooserftc.setSelected(true);
+		add(chooserftc);
 
 		ButtonGroup toggle = new ButtonGroup();
 		toggle.add(expertamd);
 		toggle.add(experenv);
+		
+		ButtonGroup chose = new ButtonGroup();
+		chose.add(chooserdoge);
+		chose.add(chooserftc);
 
 		Series = new JTextField("Getting Grafik Card Series ...", 30);
 		Series.setEditable(false);
@@ -107,7 +128,7 @@ extends JFrame
 		StartMining.setBounds(253, 346, 300, 125);
 		add(this.StartMining);
 		
-		BTCaddress = new JTextField("BTC: 15JCDD3g47KZEKN4qU3YWj75eRP7ru8JAZ");
+		/*BTCaddress = new JTextField("BTC: 15JCDD3g47KZEKN4qU3YWj75eRP7ru8JAZ");
 		BTCaddress.setBounds(53, 480, 300, 20);
 		BTCaddress.setEditable(false);
 		BTCaddress.setFont(new Font("Times New Roman", Font.BOLD, 12));
@@ -121,7 +142,7 @@ extends JFrame
 		FTCaddress.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		FTCaddress.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
 		FTCaddress.setBackground(Color.WHITE);
-		add(FTCaddress);
+		add(FTCaddress);*/
 
 		setVisible(true);
 		thehandler handler = new thehandler();
@@ -143,6 +164,8 @@ extends JFrame
 		CoinCalc.addActionListener(handler);
 		StartMining.addActionListener(handler);
 		ExpertModeCheckBox.addActionListener(handler);
+		
+		
 		
 		ExperModeField.addKeyListener(new KeyListener(){
 
@@ -212,15 +235,30 @@ extends JFrame
 					}
 				}
 				else if (Main.GrakaSeries.contains("AMD"))
-				{
-					Main.Batchfile = "cgminer.exe --scrypt -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
-					folderpath = "cgminer";
-				} 
-				else if (Main.GrakaSeries.contains("NVIDIA")) 
-				{
-					Main.Batchfile = "cudaminer.exe -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
-					folderpath = "cudaminer\\x64";
-				}
+					if(chooserdoge.isSelected() == true){
+						
+						Main.Batchfile = "cgminer.exe --scrypt -o stratum+tcp://ny.proxypool.doge.st:9666 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
+						folderpath = "cgminer";
+						
+					}
+					else{
+						
+						Main.Batchfile = "cgminer.exe --scrypt -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
+						folderpath = "cgminer";
+					}
+				
+					 
+				else if (Main.GrakaSeries.contains("NVIDIA"))
+					if(chooserdoge.isSelected() == true){
+						
+						Main.Batchfile = "cudaminer.exe -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
+						folderpath = "cudaminer\\x64";
+						
+					}
+					else{
+						Main.Batchfile = "cudaminer.exe -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
+						folderpath = "cudaminer\\x64";
+					}
 
 				try { 
 					writer = new PrintWriter(new FileWriter(System.getProperty("user.dir")+"\\"+folderpath+"\\mine.bat")); 
@@ -243,25 +281,44 @@ extends JFrame
 				}
 			}
 			if(e.getSource() == PoolInfo)
-			{		
+			{
+				if(chooserdoge.isSelected() == true){
+					try {
+						OtherStuff.poolInfoDOGE();
+					} catch (IOException | URISyntaxException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else{
 
-				try {
-					OtherStuff.poolInfo();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					e1.printStackTrace();
+					try {
+						OtherStuff.poolInfoFTC();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					} catch (URISyntaxException e1) {
+						e1.printStackTrace();
+					}
 				}
 
 			}
 			if(e.getSource() == CoinCalc)
 			{
-				try {
-					OtherStuff.CoinCalc();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} catch (URISyntaxException e1) {
-					e1.printStackTrace();
+				if(chooserdoge.isSelected() == true){
+					try {
+						OtherStuff.CoinCalcDOGE();
+					} catch (IOException | URISyntaxException e1) {
+						e1.printStackTrace();
+					}
+				}
+				else{
+					try {
+						OtherStuff.CoinCalcFTC();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					} catch (URISyntaxException e1) {
+						e1.printStackTrace();
+					}
 				}
 
 			}
@@ -299,20 +356,72 @@ extends JFrame
 		private static final long serialVersionUID = 1L;
 
 		public void paintComponent(Graphics g){
-			g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
-			g.setFont(ftdefault);
-			if(OtherStuff.pFTCPriceinUSDisPulled == true){
-				g.drawString(OtherStuff.pFTCPriceinUSD, 575, 400);
-			}else{
-				g.drawString("Fetching USD Price...", 570, 400);
+			
+			if(chooserdoge.isSelected() == true){
+				expertamd.setFont(dogedefault);
+				experenv.setFont(dogedefault);
+				Series.setFont(dogedefault);
+				ExactName.setFont(dogedefault);
+				PoolInfo.setFont(dogedefault);
+				CoinCalc.setFont(dogedefault);
+				CoinCalc.setText("Such Profit?");
+				Walletaddress.setFont(dogedefault);
+				StartMining.setFont(dogedefault);
+				ExperModeField.setFont(dogedefault);
+			}
+			else{
+				expertamd.setFont(normal);
+				experenv.setFont(normal);
+				Series.setFont(normal);
+				ExactName.setFont(normal);
+				PoolInfo.setFont(normal);
+				CoinCalc.setFont(normal);
+				CoinCalc.setText("Feathercoin Calculator");
+				Walletaddress.setFont(normal);
+				StartMining.setFont(normal);
+				ExperModeField.setFont(normal);
+				
 			}
 			
-			if(OtherStuff.pFTCDiff != null && OtherStuff.pFTCDiff != "null"){
-				g.drawString(OtherStuff.pFTCDiff, 575, 430);
-			}else{
-				g.drawString("Fetching difficulty...", 570, 430);
+			if(chooserdoge.isSelected() == true){
+				g.drawImage(ResourceLoader.ImageLoad("/DOGE.png"), 0, 0, null);
+				g.setFont(dogedefault);
 			}
-			
+			else{
+				g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
+				g.setFont(ftdefault);
+			}
+			if(chooserdoge.isSelected() == true){
+				
+				if(OtherStuff.pDOGEPriceisPulled == true){
+					g.drawString(OtherStuff.pDOGEinBTC, 560, 400);
+				}
+				else{
+					g.drawString("Fetching BTC Price...",560,400);
+				}
+				
+				if(OtherStuff.pDOGEDiff != null && OtherStuff.pDOGEDiff != "null"){
+					g.drawString(OtherStuff.pDOGEDiff, 560, 430);
+				}else{
+					g.drawString("Fetching difficulty...", 560, 430);
+				}
+			}
+			else{
+				
+				if(OtherStuff.pFTCPriceinUSDisPulled == true){
+					g.drawString(OtherStuff.pFTCPriceinUSD, 575, 400);
+				}else{
+					g.drawString("Fetching USD Price...", 570, 400);
+				}
+				
+				if(OtherStuff.pFTCDiff != null && OtherStuff.pFTCDiff != "null"){
+					g.drawString(OtherStuff.pFTCDiff, 575, 430);
+				}else{
+					g.drawString("Fetching difficulty...", 570, 430);
+				}
+				
+			}
+						
 			if(ExactWalletAddress == true)
 			{
 				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 180, 258, 35, 35, null);
