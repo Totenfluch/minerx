@@ -43,7 +43,7 @@ extends JFrame
 	private JTextField ExperModeField;
 	private JCheckBox ExpertModeCheckBox;
 	private JRadioButton expertamd, experenv;
-	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 20);
+	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 22);
 	public Font dogedefault = new Font("Comic Sans MS", Font.BOLD, 18);
 	public Font normal = new Font("Times New Roman", Font.BOLD, 20);
 	
@@ -367,7 +367,7 @@ extends JFrame
 				CoinCalc.setText("Such Profit?");
 				Walletaddress.setFont(dogedefault);
 				StartMining.setFont(dogedefault);
-				//ExperModeField.setFont(dogedefault);
+				ExperModeField.setFont(dogedefault);
 			}
 			else{
 				expertamd.setFont(normal);
@@ -379,7 +379,7 @@ extends JFrame
 				CoinCalc.setText("Feathercoin Calculator");
 				Walletaddress.setFont(normal);
 				StartMining.setFont(normal);
-				//ExperModeField.setFont(normal);
+				ExperModeField.setFont(normal);
 				
 			}
 			
