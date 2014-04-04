@@ -96,12 +96,23 @@ public class OtherStuff {
 		  } 
 	}
 	
-	public static void poolInfoDOGE() throws IOException, URISyntaxException {
+	public static void poolInfoDOGEUSA() throws IOException, URISyntaxException {
 		  if(java.awt.Desktop.isDesktopSupported() ) {
 		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
 		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
 		          java.net.URI uri = new java.net.URI("http://doge.st/");
+		              desktop.browse(uri);
+		        }
+		  } 
+	}
+	
+	public static void poolInfoDOGEEU() throws IOException, URISyntaxException {
+		  if(java.awt.Desktop.isDesktopSupported() ) {
+		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+
+		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
+		          java.net.URI uri = new java.net.URI("http://p2pool.lurkmore.com:22550/static/");
 		              desktop.browse(uri);
 		        }
 		  } 

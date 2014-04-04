@@ -269,8 +269,17 @@ extends JFrame
 				else if (Main.GrakaSeries.contains("AMD"))
 					if(chooserdoge.isSelected() == true){
 						
-						Main.Batchfile = "cgminer.exe --scrypt -o stratum+tcp://ny.proxypool.doge.st:9666 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
-						folderpath = "cgminer";
+						if(america.isSelected() == true){
+						
+							Main.Batchfile = "cgminer.exe --scrypt -o stratum+tcp://ny.proxypool.doge.st:9666 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
+							folderpath = "cgminer";
+						}
+						else{
+							
+							Main.Batchfile = "cgminer.exe --scrypt -o doge.lurkmore.com:22550 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
+							folderpath = "cgminer";
+							
+						}
 						
 					}
 					else{
@@ -315,11 +324,20 @@ extends JFrame
 			if(e.getSource() == PoolInfo)
 			{
 				if(chooserdoge.isSelected() == true){
-					try {
-						OtherStuff.poolInfoDOGE();
-					} catch (IOException | URISyntaxException e1) {
+					if(america.isSelected() == true){
+						try {
+							OtherStuff.poolInfoDOGEUSA();
+						} catch (IOException | URISyntaxException e1) {
 
-						e1.printStackTrace();
+							e1.printStackTrace();
+						}
+					}
+					else{
+						try {
+							OtherStuff.poolInfoDOGEEU();
+						} catch (IOException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
 					}
 				}
 				else{
