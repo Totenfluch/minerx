@@ -180,8 +180,9 @@ extends JFrame
 		thehandler handler = new thehandler();
 
 		ExpertModeCheckBox = new JCheckBox("Expert Mode");
-		ExpertModeCheckBox.setBounds(56, 160, 100, 20);
+		ExpertModeCheckBox.setBounds(56, 160, 240, 20);
 		ExpertModeCheckBox.setBackground(Color.WHITE);
+		ExpertModeCheckBox.setFont(normal);
 		ExpertModeCheckBox.setText("Expert Mode");
 		add(ExpertModeCheckBox);
 
@@ -418,6 +419,7 @@ extends JFrame
 				Walletaddress.setFont(dogedefault);
 				StartMining.setFont(dogedefault);
 				ExperModeField.setFont(dogedefault);
+				ExpertModeCheckBox.setFont(dogedefault);
 				america.setVisible(true);
 				america.setEnabled(true);
 				europe.setVisible(true);
@@ -431,6 +433,7 @@ extends JFrame
 				ExactName.setFont(normal);
 				PoolInfo.setFont(normal);
 				CoinCalc.setFont(normal);
+				ExpertModeCheckBox.setFont(normal);
 				CoinCalc.setText("Feathercoin Calculator");
 				Walletaddress.setFont(normal);
 				StartMining.setFont(normal);
