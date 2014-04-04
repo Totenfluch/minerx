@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
 
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -34,9 +35,10 @@ extends JFrame
 	public JTextField ExactName;
 	public JTextField BTCaddress;
 	public JTextField FTCaddress;
+	public JTextField Region;
 	public JButton PoolInfo;
 	public JButton CoinCalc;
-	public JRadioButton chooserftc, chooserdoge;
+	public JRadioButton chooserftc, chooserdoge, europe, america;
 	private JButton StartMining;
 	private boolean ExactNameRight = false;
 	private boolean ExactWalletAddress = false;
@@ -89,6 +91,23 @@ extends JFrame
 		chooserftc.setBackground(Color.WHITE);
 		chooserftc.setSelected(true);
 		add(chooserftc);
+		
+		america = new JRadioButton("USA");
+		america.setBounds(56,350,100,20);
+		america.setFont(dogedefault);
+		america.setVisible(false);
+		america.setEnabled(false);
+		america.setBackground(Color.WHITE);
+		america.setSelected(true);
+		add(america);
+		
+		europe = new JRadioButton("Europe");
+		europe.setBounds(56,370,100,20);
+		europe.setFont(dogedefault);
+		europe.setVisible(false);
+		europe.setEnabled(false);
+		europe.setBackground(Color.WHITE);
+		add(europe);
 
 		ButtonGroup toggle = new ButtonGroup();
 		toggle.add(expertamd);
@@ -97,12 +116,25 @@ extends JFrame
 		ButtonGroup chose = new ButtonGroup();
 		chose.add(chooserdoge);
 		chose.add(chooserftc);
+		
+		ButtonGroup country = new ButtonGroup();
+		country.add(europe);
+		country.add(america);
 
 		Series = new JTextField("Getting Grafik Card Series ...", 30);
 		Series.setEditable(false);
 		Series.setBounds(53, 36, 250, 50);
 		Series.setFont(new Font("Impact", 0, 20));
 		add(this.Series);
+		
+		Region = new JTextField("Region");
+		Region.setVisible(false);
+		Region.setBounds(53, 310, 100 ,30);
+		Region.setEditable(false);
+		Region.setFont(dogedefault);
+		Region.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
+		Region.setBackground(Color.WHITE);
+		add(Region);
 
 		ExactName = new JTextField("Waiting for Series", 20);
 		ExactName.setEditable(false);
@@ -368,6 +400,11 @@ extends JFrame
 				Walletaddress.setFont(dogedefault);
 				StartMining.setFont(dogedefault);
 				ExperModeField.setFont(dogedefault);
+				america.setVisible(true);
+				america.setEnabled(true);
+				europe.setVisible(true);
+				europe.setEnabled(true);
+				Region.setVisible(true);
 			}
 			else{
 				expertamd.setFont(normal);
@@ -380,6 +417,11 @@ extends JFrame
 				Walletaddress.setFont(normal);
 				StartMining.setFont(normal);
 				ExperModeField.setFont(normal);
+				america.setVisible(false);
+				europe.setVisible(false);
+				america.setEnabled(false);
+				europe.setEnabled(false);
+				Region.setVisible(false);
 				
 			}
 			
