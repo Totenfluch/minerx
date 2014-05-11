@@ -3,6 +3,7 @@ package me.MinerX;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -17,6 +18,7 @@ import java.net.URISyntaxException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -62,32 +64,40 @@ extends JFrame
 		setContentPane(new DrawPane());
 		setLayout(null);
 
-		expertamd = new JRadioButton("AMD");
+		expertamd = new JRadioButton("AMD", ResourceLoader.Iconload("/checkbox.png"));
+		expertamd.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
 		expertamd.setBounds(56, 240, 100, 20);
 		expertamd.setVisible(false);
+		expertamd.setOpaque(false);
 		expertamd.setEnabled(false);
 		expertamd.setBackground(Color.WHITE);
 		expertamd.setSelected(true);
 		add(expertamd);
 
-		experenv = new JRadioButton("NVIDIA");
+		experenv = new JRadioButton("NVIDIA", ResourceLoader.Iconload("/checkbox.png"));
+		experenv.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
 		experenv.setBounds(56, 260, 100, 20);
 		experenv.setVisible(false);
+		experenv.setOpaque(false);
 		experenv.setEnabled(false);
 		experenv.setBackground(Color.WHITE);
 		add(experenv);
 		
-		chooserdoge = new JRadioButton("DOGE");
+		chooserdoge = new JRadioButton("DOGE",ResourceLoader.Iconload("/checkbox.png"));
 		chooserdoge.setBounds(650,280,100, 20);
+		chooserdoge.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
 		chooserdoge.setVisible(true);
-		chooserdoge.setEnabled(true);
+		chooserdoge.setEnabled(false);
+		chooserdoge.setOpaque(false);
 		chooserdoge.setBackground(Color.WHITE);
 		add(chooserdoge);
 		
-		chooserftc = new JRadioButton("FTC");
+		chooserftc = new JRadioButton("FTC",ResourceLoader.Iconload("/checkbox.png"));
 		chooserftc.setBounds(650,250,100, 20);
 		chooserftc.setVisible(true);
+		chooserftc.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
 		chooserftc.setEnabled(true);
+		chooserftc.setOpaque(false);
 		chooserftc.setBackground(Color.WHITE);
 		chooserftc.setSelected(true);
 		add(chooserftc);
@@ -96,6 +106,7 @@ extends JFrame
 		america.setBounds(56,350,100,20);
 		america.setFont(dogedefault);
 		america.setVisible(false);
+		america.setOpaque(false);
 		america.setEnabled(false);
 		america.setBackground(Color.WHITE);
 		america.setSelected(true);
@@ -104,6 +115,7 @@ extends JFrame
 		europe = new JRadioButton("Europe");
 		europe.setBounds(56,370,100,20);
 		europe.setFont(dogedefault);
+		europe.setOpaque(false);
 		europe.setVisible(false);
 		europe.setEnabled(false);
 		europe.setBackground(Color.WHITE);
@@ -123,7 +135,8 @@ extends JFrame
 
 		Series = new JTextField("Getting Grafik Card Series ...", 30);
 		Series.setEditable(false);
-		Series.setBounds(53, 36, 250, 50);
+		Series.setBounds(53, 36, 261, 30);
+		Series.setOpaque(false);
 		Series.setFont(new Font("Impact", 0, 20));
 		add(this.Series);
 		
@@ -131,6 +144,7 @@ extends JFrame
 		Region.setVisible(false);
 		Region.setBounds(53, 310, 100 ,30);
 		Region.setEditable(false);
+		Region.setOpaque(false);
 		Region.setFont(dogedefault);
 		Region.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
 		Region.setBackground(Color.WHITE);
@@ -138,24 +152,27 @@ extends JFrame
 
 		ExactName = new JTextField("Waiting for Series", 20);
 		ExactName.setEditable(false);
+		ExactName.setOpaque(false);
 		ExactName.setFont(new Font("Impact", 0, 20));
-		ExactName.setBounds(53, 106, 250, 50);
+		ExactName.setBounds(53, 106, 262, 30);
 		add(this.ExactName);
 
-		PoolInfo = new JButton("Pool Information");
+		PoolInfo = new JButton(ResourceLoader.Iconload("/250x50_button_pool.png"));
 		PoolInfo.setBounds(503, 36, 250, 50);
 		add(this.PoolInfo);
 
-		CoinCalc = new JButton("Feathercoin Calculator");
+		CoinCalc = new JButton(ResourceLoader.Iconload("/250x50_button_calc.png"));
 		CoinCalc.setBounds(503, 106, 250, 50);
 		add(this.CoinCalc);
 
 		Walletaddress = new JTextField("@Walletaddress", 30);
-		Walletaddress.setBounds(241, 256, 325, 40);
+		Walletaddress.setBounds(246, 261, 310, 20);
 		Walletaddress.setFont(new Font("Impact", 0, 20));
+		Walletaddress.setOpaque(false);
+		Walletaddress.setBorder(BorderFactory.createLineBorder(Color.WHITE, 0));
 		add(this.Walletaddress);
 
-		StartMining = new JButton("Start Mining");
+		StartMining = new JButton(ResourceLoader.Iconload("/start_button.png"));
 		StartMining.setEnabled(false);
 		StartMining.setBounds(253, 346, 300, 125);
 		add(this.StartMining);
@@ -179,16 +196,20 @@ extends JFrame
 		setVisible(true);
 		thehandler handler = new thehandler();
 
-		ExpertModeCheckBox = new JCheckBox("Expert Mode");
+		ExpertModeCheckBox = new JCheckBox("Expert Mode", ResourceLoader.Iconload("/checkbox.png"));
+		ExpertModeCheckBox.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
 		ExpertModeCheckBox.setBounds(56, 160, 240, 20);
 		ExpertModeCheckBox.setBackground(Color.WHITE);
+		ExpertModeCheckBox.setOpaque(false);
 		ExpertModeCheckBox.setFont(normal);
 		ExpertModeCheckBox.setText("Expert Mode");
 		add(ExpertModeCheckBox);
 
 		ExperModeField = new JTextField("cgminer --scrypt -o http://...", 20);
-		ExperModeField.setBounds(56, 200, 695, 30);
+		ExperModeField.setBounds(58, 202, 700, 25);
 		ExperModeField.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		ExperModeField.setOpaque(false);
+		ExperModeField.setBorder(BorderFactory.createLineBorder(Color.WHITE, 0));
 		ExperModeField.setEnabled(false);
 		ExperModeField.setVisible(false);
 		add(ExperModeField);
@@ -434,7 +455,7 @@ extends JFrame
 				PoolInfo.setFont(normal);
 				CoinCalc.setFont(normal);
 				ExpertModeCheckBox.setFont(normal);
-				CoinCalc.setText("Feathercoin Calculator");
+				//CoinCalc.setText("Feathercoin Calculator");
 				Walletaddress.setFont(normal);
 				StartMining.setFont(normal);
 				ExperModeField.setFont(normal);
@@ -451,8 +472,16 @@ extends JFrame
 				g.setFont(dogedefault);
 			}
 			else{
-				g.drawImage(ResourceLoader.ImageLoad("/Dbb.png"), 0, 0, null);
+				
+				g.drawImage(ResourceLoader.ImageLoad("/background.png"), 0, 0, null);
+				g.drawImage(ResourceLoader.ImageLoad("/xminer_logo.png"),321,50,null);
+				g.drawImage(ResourceLoader.ImageLoad("/input_bar.png"),241, 256,null);
+				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg3.png"),53,36,null);
+				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg3.png"),53,106,null);
 				g.setFont(ftdefault);
+			}
+			if(ExpertModeCheckBox.isSelected() == true){
+				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg4.png"),56,200,null);
 			}
 			if(chooserdoge.isSelected() == true){
 				
@@ -487,19 +516,19 @@ extends JFrame
 						
 			if(ExactWalletAddress == true)
 			{
-				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 180, 258, 35, 35, null);
+				g.drawImage(ResourceLoader.ImageLoad("/icontrue.png"), 180, 255, 35, 35, null);
 			}
 			else if(ExactWalletAddress == false)
 			{
-				g.drawImage(ResourceLoader.ImageLoad("/reddot.png"), 180, 258, 35, 35, null);
+				g.drawImage(ResourceLoader.ImageLoad("/iconfalse.png"), 180, 255, 35, 35, null);
 			}
 			if(ExactNameRight == true)
 			{
-				g.drawImage(ResourceLoader.ImageLoad("/greendot.png"), 10, 115, 35, 35, null);
+				g.drawImage(ResourceLoader.ImageLoad("/icontrue.png"), 10, 105, 35, 35, null);
 			}
 			else if(ExactNameRight == false)
 			{
-				g.drawImage(ResourceLoader.ImageLoad("/reddot.png"), 10, 115, 35, 35, null);
+				g.drawImage(ResourceLoader.ImageLoad("/iconfalse.png"), 10, 105, 35, 35, null);
 			}
 		}
 	}
