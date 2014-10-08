@@ -3,7 +3,6 @@ package me.MinerX;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -18,7 +17,6 @@ import java.net.URISyntaxException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -40,7 +38,7 @@ extends JFrame
 	public JTextField Region;
 	public JButton PoolInfo;
 	public JButton CoinCalc;
-	public JRadioButton chooserftc, chooserdoge, europe, america;
+	public JRadioButton chooserchina, choosereurope, choosereuropeone;
 	private JButton StartMining;
 	private boolean ExactNameRight = false;
 	private boolean ExactWalletAddress = false;
@@ -48,7 +46,7 @@ extends JFrame
 	private JCheckBox ExpertModeCheckBox;
 	private JRadioButton expertamd, experenv;
 	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 22);
-	public Font dogedefault = new Font("Comic Sans MS", Font.BOLD, 18);
+	//public Font dogedefault = new Font("Comic Sans MS", Font.BOLD, 18);
 	public Font normal = new Font("Times New Roman", Font.BOLD, 20);
 	
 
@@ -83,55 +81,44 @@ extends JFrame
 		experenv.setBackground(Color.WHITE);
 		add(experenv);
 		
-		chooserdoge = new JRadioButton("DOGE",ResourceLoader.Iconload("/checkbox.png"));
-		chooserdoge.setBounds(650,280,100, 20);
-		chooserdoge.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
-		chooserdoge.setVisible(true);
-		chooserdoge.setEnabled(false);
-		chooserdoge.setOpaque(false);
-		chooserdoge.setBackground(Color.WHITE);
-		add(chooserdoge);
+		choosereurope = new JRadioButton("Europe",ResourceLoader.Iconload("/checkbox.png"));
+		choosereurope.setBounds(645,250,100, 20);
+		choosereurope.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
+		choosereurope.setVisible(true);
+		choosereurope.setEnabled(true);
+		choosereurope.setOpaque(false);
+		choosereurope.setBackground(Color.WHITE);
+		choosereurope.setSelected(true);
+		add(choosereurope);
 		
-		chooserftc = new JRadioButton("FTC",ResourceLoader.Iconload("/checkbox.png"));
-		chooserftc.setBounds(650,250,100, 20);
-		chooserftc.setVisible(true);
-		chooserftc.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
-		chooserftc.setEnabled(true);
-		chooserftc.setOpaque(false);
-		chooserftc.setBackground(Color.WHITE);
-		chooserftc.setSelected(true);
-		add(chooserftc);
+		choosereuropeone = new JRadioButton("Europe 2",ResourceLoader.Iconload("/checkbox.png"));
+		choosereuropeone.setBounds(645,270,100, 20);
+		choosereuropeone.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
+		choosereuropeone.setVisible(true);
+		choosereuropeone.setEnabled(true);
+		choosereuropeone.setOpaque(false);
+		choosereuropeone.setBackground(Color.WHITE);
+		choosereuropeone.setSelected(false);
+		add(choosereuropeone);
 		
-		america = new JRadioButton("USA");
-		america.setBounds(56,350,100,20);
-		america.setFont(dogedefault);
-		america.setVisible(false);
-		america.setOpaque(false);
-		america.setEnabled(false);
-		america.setBackground(Color.WHITE);
-		america.setSelected(true);
-		add(america);
-		
-		europe = new JRadioButton("Europe");
-		europe.setBounds(56,370,100,20);
-		europe.setFont(dogedefault);
-		europe.setOpaque(false);
-		europe.setVisible(false);
-		europe.setEnabled(false);
-		europe.setBackground(Color.WHITE);
-		add(europe);
+		chooserchina = new JRadioButton("China",ResourceLoader.Iconload("/checkbox.png"));
+		chooserchina.setBounds(645,290,100, 20);
+		chooserchina.setVisible(true);
+		chooserchina.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
+		chooserchina.setEnabled(true);
+		chooserchina.setOpaque(false);
+		chooserchina.setBackground(Color.WHITE);
+		add(chooserchina);
+
 
 		ButtonGroup toggle = new ButtonGroup();
 		toggle.add(expertamd);
 		toggle.add(experenv);
 		
 		ButtonGroup chose = new ButtonGroup();
-		chose.add(chooserdoge);
-		chose.add(chooserftc);
-		
-		ButtonGroup country = new ButtonGroup();
-		country.add(europe);
-		country.add(america);
+		chose.add(choosereurope);
+		chose.add(chooserchina);
+		chose.add(choosereuropeone);
 
 		Series = new JTextField("Getting Grafik Card Series ...", 30);
 		Series.setEditable(false);
@@ -141,12 +128,12 @@ extends JFrame
 		add(this.Series);
 		
 		Region = new JTextField("Region");
-		Region.setVisible(false);
-		Region.setBounds(53, 310, 100 ,30);
+		Region.setVisible(true);
+		Region.setBounds(650, 220, 100 ,30);
 		Region.setEditable(false);
 		Region.setOpaque(false);
-		Region.setFont(dogedefault);
-		Region.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
+		Region.setFont(normal);
+		Region.setBorder(BorderFactory.createLineBorder(Color.WHITE, 0));
 		Region.setBackground(Color.WHITE);
 		add(Region);
 
@@ -289,37 +276,31 @@ extends JFrame
 					}
 				}
 				else if (Main.GrakaSeries.contains("AMD"))
-					if(chooserdoge.isSelected() == true){
+					if(choosereurope.isSelected() == true){
 						
-						if(america.isSelected() == true){
 						
-							Main.Batchfile = "cgminer.exe --scrypt -o stratum+tcp://ny.proxypool.doge.st:9666 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
+							Main.Batchfile = "cgminer.exe --neoscrypt -o EUROPEURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
 							folderpath = "cgminer";
-						}
+					}
+						
 						else{
 							
-							Main.Batchfile = "cgminer.exe --scrypt -o doge.lurkmore.com:22550 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
+							Main.Batchfile = "cgminer.exe --neoscrypt -o CHINAURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
 							folderpath = "cgminer";
 							
 						}
-						
-					}
-					else{
-						
-						Main.Batchfile = "cgminer.exe --scrypt -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
-						folderpath = "cgminer";
-					}
+			
 				
 					 
 				else if (Main.GrakaSeries.contains("NVIDIA"))
-					if(chooserdoge.isSelected() == true){
+					if(choosereurope.isSelected() == true){
 						
-						Main.Batchfile = "cudaminer.exe -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
+						Main.Batchfile = "cgminer.exe --neoscrypt -o EUROPEURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "cudaminer\\x64";
 						
 					}
 					else{
-						Main.Batchfile = "cudaminer.exe -o http://mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIA.get(ExactName.getText().toString());
+						Main.Batchfile = "cgminer.exe --neoscrypt -o CHINAURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "cudaminer\\x64";
 					}
 
@@ -345,25 +326,6 @@ extends JFrame
 			}
 			if(e.getSource() == PoolInfo)
 			{
-				if(chooserdoge.isSelected() == true){
-					if(america.isSelected() == true){
-						try {
-							OtherStuff.poolInfoDOGEUSA();
-						} catch (IOException | URISyntaxException e1) {
-
-							e1.printStackTrace();
-						}
-					}
-					else{
-						try {
-							OtherStuff.poolInfoDOGEEU();
-						} catch (IOException | URISyntaxException e1) {
-							e1.printStackTrace();
-						}
-					}
-				}
-				else{
-
 					try {
 						OtherStuff.poolInfoFTC();
 					} catch (IOException e1) {
@@ -371,19 +333,10 @@ extends JFrame
 					} catch (URISyntaxException e1) {
 						e1.printStackTrace();
 					}
-				}
 
 			}
 			if(e.getSource() == CoinCalc)
 			{
-				if(chooserdoge.isSelected() == true){
-					try {
-						OtherStuff.CoinCalcDOGE();
-					} catch (IOException | URISyntaxException e1) {
-						e1.printStackTrace();
-					}
-				}
-				else{
 					try {
 						OtherStuff.CoinCalcFTC();
 					} catch (IOException e1) {
@@ -391,7 +344,6 @@ extends JFrame
 					} catch (URISyntaxException e1) {
 						e1.printStackTrace();
 					}
-				}
 
 			}
 
@@ -406,6 +358,10 @@ extends JFrame
 					Series.setEnabled(false);
 					Walletaddress.setEnabled(false);
 					ExactName.setEnabled(false);
+					Region.setVisible(false);
+					choosereurope.setVisible(false);
+					chooserchina.setVisible(false);
+					choosereuropeone.setVisible(false);
 					Main.ExpertMode = true;
 				}else{
 					ExperModeField.setEnabled(false);
@@ -418,6 +374,10 @@ extends JFrame
 					Walletaddress.setEnabled(true);
 					ExactName.setEnabled(true);
 					Main.ExpertMode = false;
+					Region.setVisible(true);
+					choosereurope.setVisible(true);
+					chooserchina.setVisible(true);
+					choosereuropeone.setVisible(true);
 					ExperModeField.setText("cgminer --scrypt -o http://...");
 				}
 			}
@@ -429,25 +389,6 @@ extends JFrame
 
 		public void paintComponent(Graphics g){
 			
-			if(chooserdoge.isSelected() == true){
-				expertamd.setFont(dogedefault);
-				experenv.setFont(dogedefault);
-				Series.setFont(dogedefault);
-				ExactName.setFont(dogedefault);
-				PoolInfo.setFont(dogedefault);
-				CoinCalc.setFont(dogedefault);
-				CoinCalc.setText("Such Profit?");
-				Walletaddress.setFont(dogedefault);
-				StartMining.setFont(dogedefault);
-				ExperModeField.setFont(dogedefault);
-				ExpertModeCheckBox.setFont(dogedefault);
-				america.setVisible(true);
-				america.setEnabled(true);
-				europe.setVisible(true);
-				europe.setEnabled(true);
-				Region.setVisible(true);
-			}
-			else{
 				expertamd.setFont(normal);
 				experenv.setFont(normal);
 				Series.setFont(normal);
@@ -455,50 +396,20 @@ extends JFrame
 				PoolInfo.setFont(normal);
 				CoinCalc.setFont(normal);
 				ExpertModeCheckBox.setFont(normal);
-				//CoinCalc.setText("Feathercoin Calculator");
 				Walletaddress.setFont(normal);
 				StartMining.setFont(normal);
 				ExperModeField.setFont(normal);
-				america.setVisible(false);
-				europe.setVisible(false);
-				america.setEnabled(false);
-				europe.setEnabled(false);
-				Region.setVisible(false);
-				
-			}
 			
-			if(chooserdoge.isSelected() == true){
-				g.drawImage(ResourceLoader.ImageLoad("/DOGE.png"), 0, 0, null);
-				g.setFont(dogedefault);
-			}
-			else{
-				
 				g.drawImage(ResourceLoader.ImageLoad("/background.png"), 0, 0, null);
 				g.drawImage(ResourceLoader.ImageLoad("/xminer_logo.png"),321,50,null);
 				g.drawImage(ResourceLoader.ImageLoad("/input_bar.png"),241, 256,null);
 				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg3.png"),53,36,null);
 				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg3.png"),53,106,null);
 				g.setFont(ftdefault);
-			}
+				
 			if(ExpertModeCheckBox.isSelected() == true){
 				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg4.png"),56,200,null);
 			}
-			if(chooserdoge.isSelected() == true){
-				
-				if(OtherStuff.pDOGEPriceisPulled == true){
-					g.drawString(OtherStuff.pDOGEinBTC, 560, 400);
-				}
-				else{
-					g.drawString("Fetching BTC Price...",560,400);
-				}
-				
-				if(OtherStuff.pDOGEDiff != null && OtherStuff.pDOGEDiff != "null"){
-					g.drawString(OtherStuff.pDOGEDiff, 560, 430);
-				}else{
-					g.drawString("Fetching difficulty...", 560, 430);
-				}
-			}
-			else{
 				
 				if(OtherStuff.pFTCPriceinUSDisPulled == true){
 					g.drawString(OtherStuff.pFTCPriceinUSD, 575, 400);
@@ -512,7 +423,6 @@ extends JFrame
 					g.drawString("Fetching difficulty...", 570, 430);
 				}
 				
-			}
 						
 			if(ExactWalletAddress == true)
 			{

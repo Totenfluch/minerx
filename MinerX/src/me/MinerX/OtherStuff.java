@@ -15,10 +15,7 @@ import javax.swing.JOptionPane;
 public class OtherStuff {
 	public static String pFTCPriceinUSD = null;
 	public static String pFTCDiff = null;
-	public static String pDOGEinBTC = null;
-	public static String pDOGEDiff = null;
 	public static boolean pFTCPriceinUSDisPulled = false;
-	public static boolean pDOGEPriceisPulled = false;
 	
 	
 	public static void getFTCPriceUSD() throws IOException{
@@ -79,7 +76,7 @@ public class OtherStuff {
 		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
 		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
-		          java.net.URI uri = new java.net.URI("http://mine-ftc.co.uk:19327/static/index.html");
+		          java.net.URI uri = new java.net.URI("http://p2pool.neoscrypt.de:10554/static/");
 		              desktop.browse(uri);
 		        }
 		  } 
@@ -96,7 +93,7 @@ public class OtherStuff {
 		  } 
 	}
 	
-	public static void poolInfoDOGEUSA() throws IOException, URISyntaxException {
+	/*public static void poolInfoDOGEUSA() throws IOException, URISyntaxException {
 		  if(java.awt.Desktop.isDesktopSupported() ) {
 		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
@@ -187,7 +184,7 @@ public class OtherStuff {
 		catch (IOException e) 
 		{
 		} 
-	}
+	}*/
 	
 	
 }

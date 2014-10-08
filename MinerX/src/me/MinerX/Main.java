@@ -47,8 +47,6 @@ public class Main
 		try {
 			OtherStuff.getFTCPriceUSD();
 			OtherStuff.getFTCDiff();
-			OtherStuff.getDOGEinBTC();
-			OtherStuff.getDOGEDiff();
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		}
