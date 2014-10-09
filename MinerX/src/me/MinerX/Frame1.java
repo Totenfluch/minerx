@@ -401,7 +401,7 @@ extends JFrame
 				ExperModeField.setFont(normal);
 			
 				g.drawImage(ResourceLoader.ImageLoad("/background.png"), 0, 0, null);
-				g.drawImage(ResourceLoader.ImageLoad("/xminer_logo.png"),321,50,null);
+				g.drawImage(ResourceLoader.ImageLoad("/xminer_logo_neoscrypt.png"),321,50,null);
 				g.drawImage(ResourceLoader.ImageLoad("/input_bar.png"),241, 256,null);
 				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg3.png"),53,36,null);
 				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg3.png"),53,106,null);
