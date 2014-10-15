@@ -76,7 +76,7 @@ public class OtherStuff {
 		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
 		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
-		          java.net.URI uri = new java.net.URI("http://p2pool.neoscrypt.de:10554/static/");
+		          java.net.URI uri = new java.net.URI("http://neoscryptmuddy/");
 		              desktop.browse(uri);
 		        }
 		  } 
@@ -87,7 +87,7 @@ public class OtherStuff {
 		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
 		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
-		          java.net.URI uri = new java.net.URI("http://Neoscrypt.de//Wellenreiter");
+		          java.net.URI uri = new java.net.URI("http://p2pool.neoscrypt.de:10554");
 		              desktop.browse(uri);
 		        }
 		  } 

@@ -278,19 +278,19 @@ extends JFrame
 					if(choosereurope.isSelected() == true){
 						
 						
-							Main.Batchfile = "cgminer.exe --neoscrypt -o WelenURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
+							Main.Batchfile = "cgminer --neoscrypt -o p2pool.neoscrypt.de:10554 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
 							folderpath = "Neocgminer";
 					}
 				
 					else if(choosereuropeone.isSelected() == true){
 						
-							Main.Batchfile = "cgminer.exe --neoscrypt -o MuddyURL -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD2Neo.get(ExactName.getText().toString()); 
+							Main.Batchfile = "cgminer --neoscrypt -o MuddyURL -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD2Neo.get(ExactName.getText().toString()); 
 							folderpath = "Neocgminer";
 					}
 						
 						else{
 							
-							Main.Batchfile = "cgminer.exe --neoscrypt -o LizhiURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
+							Main.Batchfile = "cgminer --neoscrypt -o LizhiURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
 							folderpath = "Neocgminer";
 							
 						}
@@ -300,19 +300,19 @@ extends JFrame
 				else if (Main.GrakaSeries.contains("NVIDIA"))
 					if(choosereurope.isSelected() == true){
 						
-						Main.Batchfile = "cgminer.exe --neoscrypt -o WELLENURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						Main.Batchfile = "cgminer --neoscrypt -o p2pool.neoscrypt.de:10554 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "Neocgminer";
 						
 					}
 				
 					else if(choosereuropeone.isSelected() == true){
 						
-						Main.Batchfile = "cgminer.exe --neoscrypt -o MuddyURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						Main.Batchfile = "cgminer --neoscrypt -o MuddyURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "Neocgminer";
 						
 					}
 					else{
-						Main.Batchfile = "cgminer.exe --neoscrypt -o LIZHIURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						Main.Batchfile = "cgminer --neoscrypt -o LIZHIURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "Neocgminer";
 					}
 
@@ -409,7 +409,7 @@ extends JFrame
 					choosereurope.setVisible(true);
 					chooserchina.setVisible(true);
 					choosereuropeone.setVisible(true);
-					ExperModeField.setText("cgminer --scrypt -o http://...");
+					ExperModeField.setText("cgminer --neoscrypt -o http://...");
 				}
 			}
 		}

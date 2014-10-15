@@ -225,7 +225,7 @@ public class Specs
 		NVIDIANeo.put("NVIDIA GeForce GTX 470","-H 1 -i 0");
 		NVIDIANeo.put("NVIDIA GeForce GTX 480","-t 1 -H 1 -d 0 -i 0 -l F14x16 -C 1");
 		NVIDIANeo.put("NVIDIA GeForce GTX 555","-l 12x6");
-		NVIDIANeo.put("NVIDIA GeForce GTX 560","-l 14x8");
+		NVIDIANeo.put("NVIDIA GeForce GTX 560","-I 13 --worksize 64 -g 1");
 		NVIDIANeo.put("NVIDIA GeForce GTX 550 Ti","-i 1 -l F16x8");
 		NVIDIANeo.put("NVIDIA GeForce GTX 560 Ti","-t 1 -H 1 -d 0 -i 0 -l F14x16 -C 1");
 		NVIDIANeo.put("NVIDIA GeForce GTX 570","-t 1 -H 1 -d 0 -i 0 -l F14x16 -C 1");
@@ -239,6 +239,7 @@ public class Specs
 		NVIDIANeo.put("NVIDIA GeForce GTX 670","-C 2 -D -i 0 -l 56x5");
 		NVIDIANeo.put("NVIDIA GeForce GTX 680","-H 1 -C 2 -m 1 -d 0 -l K16x16 -i 0");
 		NVIDIANeo.put("NVIDIA GeForce GTX 770","-D -H 1 -m 1 -d 0 -i 1 -l K16x16 -C 2");
+		NVIDIANeo.put("NVIDIA GeForce GTX 750 Ti","-I 13 --worksize 128 --gpu-dyninterval 7 -g 1");
 		NVIDIANeo.put("NVIDIA GeForce GTX TITAN","-d 0 -i 0 -C 2 -l K14x18");
 	}
 }
