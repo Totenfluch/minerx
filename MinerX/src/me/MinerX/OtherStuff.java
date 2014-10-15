@@ -71,12 +71,34 @@ public class OtherStuff {
 		} 
 	}
 	
-	public static void poolInfoFTC() throws IOException, URISyntaxException {
+	public static void poolInfoFTCMuddy() throws IOException, URISyntaxException {
 		  if(java.awt.Desktop.isDesktopSupported() ) {
 		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
 		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
 		          java.net.URI uri = new java.net.URI("http://p2pool.neoscrypt.de:10554/static/");
+		              desktop.browse(uri);
+		        }
+		  } 
+	}
+	
+	public static void poolInfoFTCWellen() throws IOException, URISyntaxException {
+		  if(java.awt.Desktop.isDesktopSupported() ) {
+		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+
+		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
+		          java.net.URI uri = new java.net.URI("http://Neoscrypt.de//Wellenreiter");
+		              desktop.browse(uri);
+		        }
+		  } 
+	}
+	
+	public static void poolInfoFTCLizhi() throws IOException, URISyntaxException {
+		  if(java.awt.Desktop.isDesktopSupported() ) {
+		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+
+		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
+		          java.net.URI uri = new java.net.URI("http://ftc-c.com//Lizhi");
 		              desktop.browse(uri);
 		        }
 		  } 

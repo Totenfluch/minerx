@@ -192,7 +192,7 @@ extends JFrame
 		ExpertModeCheckBox.setText("Expert Mode");
 		add(ExpertModeCheckBox);
 
-		ExperModeField = new JTextField("cgminer --scrypt -o http://...", 20);
+		ExperModeField = new JTextField("cgminer --neoscrypt -o http://...", 20);
 		ExperModeField.setBounds(58, 202, 700, 25);
 		ExperModeField.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		ExperModeField.setOpaque(false);
@@ -212,7 +212,7 @@ extends JFrame
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				if(ExperModeField.getText().equals("cgminer --scrypt -o http://...")){
+				if(ExperModeField.getText().equals("cgminer --neoscrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
@@ -229,20 +229,20 @@ extends JFrame
 		ExperModeField.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e){
-				if(ExperModeField.getText().equals("cgminer --scrypt -o http://...")){
+				if(ExperModeField.getText().equals("cgminer --neoscrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
 
 			public void mouseEntered(MouseEvent arg0) {
-				if(ExperModeField.getText().equals("cgminer --scrypt -o http://...")){
+				if(ExperModeField.getText().equals("cgminer --neoscrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
 
 			public void mouseExited(MouseEvent arg0) {
 				if(ExperModeField.getText().equals("")){
-					ExperModeField.setText("cgminer --scrypt -o http://...");
+					ExperModeField.setText("cgminer --neoscrypt -o http://...");
 				}
 			}
 		});
@@ -261,17 +261,16 @@ extends JFrame
 			if (e.getSource() == StartMining)
 			{
 				if(Main.ExpertMode == true){
-					if((ExperModeField.getText().contains("cgminer") || ExperModeField.getText().contains("cudaminer"))
-							&& ExperModeField.getText().contains("-u")){
+					if(ExperModeField.getText().contains("cgminer") && ExperModeField.getText().contains("-u")){
 						
 						Main.Batchfile = ExperModeField.getText();
 						if(expertamd.isSelected() == true){
-							folderpath = "cgminer";
+							folderpath = "Neocgminer";
 						}else if(experenv.isSelected() == true){
-							folderpath = "cudaminer\\x64";
+							folderpath = "Neocgminer";
 						}
 					}else{
-						JOptionPane.showMessageDialog(null, "Try Again.");
+						JOptionPane.showMessageDialog(null, "That wouldnt work, please try again.");
 						return;
 					}
 				}
@@ -279,14 +278,20 @@ extends JFrame
 					if(choosereurope.isSelected() == true){
 						
 						
-							Main.Batchfile = "cgminer.exe --neoscrypt -o EUROPEURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
-							folderpath = "cgminer";
+							Main.Batchfile = "cgminer.exe --neoscrypt -o WelenURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
+							folderpath = "Neocgminer";
+					}
+				
+					else if(choosereuropeone.isSelected() == true){
+						
+							Main.Batchfile = "cgminer.exe --neoscrypt -o MuddyURL -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD2Neo.get(ExactName.getText().toString()); 
+							folderpath = "Neocgminer";
 					}
 						
 						else{
 							
-							Main.Batchfile = "cgminer.exe --neoscrypt -o CHINAURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD.get(ExactName.getText().toString());
-							folderpath = "cgminer";
+							Main.Batchfile = "cgminer.exe --neoscrypt -o LizhiURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
+							folderpath = "Neocgminer";
 							
 						}
 			
@@ -295,13 +300,20 @@ extends JFrame
 				else if (Main.GrakaSeries.contains("NVIDIA"))
 					if(choosereurope.isSelected() == true){
 						
-						Main.Batchfile = "cgminer.exe --neoscrypt -o EUROPEURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
-						folderpath = "cudaminer\\x64";
+						Main.Batchfile = "cgminer.exe --neoscrypt -o WELLENURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						folderpath = "Neocgminer";
+						
+					}
+				
+					else if(choosereuropeone.isSelected() == true){
+						
+						Main.Batchfile = "cgminer.exe --neoscrypt -o MuddyURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						folderpath = "Neocgminer";
 						
 					}
 					else{
-						Main.Batchfile = "cgminer.exe --neoscrypt -o CHINAURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
-						folderpath = "cudaminer\\x64";
+						Main.Batchfile = "cgminer.exe --neoscrypt -o LIZHIURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						folderpath = "Neocgminer";
 					}
 
 				try { 
@@ -326,13 +338,32 @@ extends JFrame
 			}
 			if(e.getSource() == PoolInfo)
 			{
+				if(choosereurope.isSelected() == true){
+					try{
+						OtherStuff.poolInfoFTCWellen();
+					}
+					catch(IOException | URISyntaxException e1){
+						e1.printStackTrace();
+					}
+				}
+				
+				else if(choosereuropeone.isSelected() == true){
+					try{
+						OtherStuff.poolInfoFTCMuddy();
+					} catch (URISyntaxException | IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else{
 					try {
-						OtherStuff.poolInfoFTC();
+						OtherStuff.poolInfoFTCLizhi();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					} catch (URISyntaxException e1) {
 						e1.printStackTrace();
 					}
+				}
 
 			}
 			if(e.getSource() == CoinCalc)
