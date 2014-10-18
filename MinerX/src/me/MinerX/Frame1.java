@@ -290,7 +290,7 @@ extends JFrame
 						
 						else{
 							
-							Main.Batchfile = "cgminer --neoscrypt -o LizhiURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
+							Main.Batchfile = "cgminer --neoscrypt -o http://pool.ftc-c.com:19328 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
 							folderpath = "Neocgminer";
 							
 						}
@@ -312,7 +312,7 @@ extends JFrame
 						
 					}
 					else{
-						Main.Batchfile = "cgminer --neoscrypt -o LIZHIURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						Main.Batchfile = "cgminer --neoscrypt -o http://pool.ftc-c.com:19328 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "Neocgminer";
 					}
 
