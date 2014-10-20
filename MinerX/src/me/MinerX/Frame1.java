@@ -91,7 +91,7 @@ extends JFrame
 		choosereurope.setSelected(true);
 		add(choosereurope);
 		
-		choosereuropeone = new JRadioButton("Europe 2",ResourceLoader.Iconload("/checkbox.png"));
+		choosereuropeone = new JRadioButton("US",ResourceLoader.Iconload("/checkbox.png"));
 		choosereuropeone.setBounds(645,270,100, 20);
 		choosereuropeone.setSelectedIcon(ResourceLoader.Iconload("/checkbox_checked.png"));
 		choosereuropeone.setVisible(true);
@@ -284,7 +284,7 @@ extends JFrame
 				
 					else if(choosereuropeone.isSelected() == true){
 						
-							Main.Batchfile = "cgminer --neoscrypt -o MuddyURL -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString()); 
+							Main.Batchfile = "cgminer --neoscrypt -o http://us.mine-ftc.co.uk:19327 -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString()); 
 							folderpath = "Neocgminer";
 					}
 						
@@ -307,7 +307,7 @@ extends JFrame
 				
 					else if(choosereuropeone.isSelected() == true){
 						
-						Main.Batchfile = "cgminer --neoscrypt -o MuddyURL -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						Main.Batchfile = "cgminer --neoscrypt -o http://us.mine-ftc.co.uk:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "Neocgminer";
 						
 					}

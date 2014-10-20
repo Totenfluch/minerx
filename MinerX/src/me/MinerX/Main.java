@@ -25,7 +25,7 @@ public class Main
 {
 	public static Frame1 frame1;
 	public static boolean website;
-	public static String[] webnames = {"http://p2pool.neoscrypt.de:10554","http://muddypoool.com","http://pool.ftc-c.com:19328/static/"};
+	public static String[] webnames = {"http://p2pool.neoscrypt.de:10554","http://us.mine-ftc.co.uk:19327/static/","http://pool.ftc-c.com:19328/static/"};
 	public static String GrakaSeries = "";
 	public static String Batchfile;
 	private static Timer timer;
