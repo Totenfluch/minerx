@@ -284,7 +284,7 @@ extends JFrame
 				
 					else if(choosereuropeone.isSelected() == true){
 						
-							Main.Batchfile = "cgminer --neoscrypt -o MuddyURL -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMD2Neo.get(ExactName.getText().toString()); 
+							Main.Batchfile = "cgminer --neoscrypt -o MuddyURL -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString()); 
 							folderpath = "Neocgminer";
 					}
 						
@@ -483,6 +483,7 @@ extends JFrame
 		String g = (String)Specs.NVIDIA.get(p);
 		boolean check1 = false;
 		boolean check2 = false;
+			
 		if ((!Walletaddress.getText().equals("@Walletaddress") && Walletaddress.getText().length() == 34)  || Main.ExpertMode == true)
 		{
 			check1 = true;
