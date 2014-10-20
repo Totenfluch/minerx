@@ -390,9 +390,9 @@ extends JFrame
 					Walletaddress.setEnabled(false);
 					ExactName.setEnabled(false);
 					Region.setVisible(false);
-					choosereurope.setVisible(false);
-					chooserchina.setVisible(false);
-					choosereuropeone.setVisible(false);
+					choosereurope.setEnabled(false);
+					chooserchina.setEnabled(false);
+					choosereuropeone.setEnabled(false);
 					Main.ExpertMode = true;
 				}else{
 					ExperModeField.setEnabled(false);
@@ -406,9 +406,9 @@ extends JFrame
 					ExactName.setEnabled(true);
 					Main.ExpertMode = false;
 					Region.setVisible(true);
-					choosereurope.setVisible(true);
-					chooserchina.setVisible(true);
-					choosereuropeone.setVisible(true);
+					choosereurope.setEnabled(true);
+					chooserchina.setEnabled(true);
+					choosereuropeone.setEnabled(true);
 					ExperModeField.setText("cgminer --neoscrypt -o http://...");
 				}
 			}
