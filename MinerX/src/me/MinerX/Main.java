@@ -24,6 +24,8 @@ import javax.swing.Timer;
 public class Main
 {
 	public static Frame1 frame1;
+	public static boolean website;
+	public static String[] webnames = {"http://p2pool.neoscrypt.de:10554","http://muddypoool.com","http://pool.ftc-c.com:19328/static/"};
 	public static String GrakaSeries = "";
 	public static String Batchfile;
 	private static Timer timer;
@@ -44,6 +46,25 @@ public class Main
 		
 		Specs.initSpecs();
 		try {
+			for(int i = 0; i<=2; i++){
+				
+				website=OtherStuff.checkURL(webnames[i]);
+				
+				if(Main.website == false){
+					
+					if(i==0){
+						frame1.choosereurope.setVisible(false);
+					}
+					else if(i==1){
+						frame1.choosereuropeone.setVisible(false);
+					}
+					else{
+						frame1.chooserchina.setVisible(false);
+					}
+						
+				}
+			}
+				
 			OtherStuff.getFTCPriceUSD();
 			OtherStuff.getFTCDiff();
 		} catch (MalformedURLException e1) {

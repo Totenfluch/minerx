@@ -115,6 +115,18 @@ public class OtherStuff {
 		  } 
 	}
 	
+	public static boolean checkURL(String website) throws IOException {
+		
+		try{
+		    final URLConnection connection = new URL(website).openConnection();
+		    connection.connect();
+		    return true;
+		} catch(final IOException e){
+			return false;
+		}
+		
+	}
+	
 }
 
 
