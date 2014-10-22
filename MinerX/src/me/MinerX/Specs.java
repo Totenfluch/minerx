@@ -128,7 +128,7 @@ public class Specs
 		AMDNeo.put("AMD Radeon R9 270", "-I 13 -w 16 --gpu-memclock 1500 --gpu-engine 1125");
 		AMDNeo.put("AMD Radeon R9 270x", "-w 256 -I 19 --shaders 1280 --gpu-memclock 1500 --gpu-engine 1125");		
 		AMDNeo.put("AMD Radeon R9 280x", "-g 2 -w 48 -I 14 --gpu-engine 1050 --gpu-memclock 1500");
-		AMDNeo.put("AMD Radeon R9 290", " -I 20 -g 2 -w 512 --gpu-memclock 1500 --gpu-engine 990");
+		AMDNeo.put("AMD Radeon R9 290", " -I 14 -g 2 -w 32");
 		AMDNeo.put("AMD Radeon R9 290x", "-I 20 -w 256 -g 2");
 		
 		AMD2Neo.put("AMD Radeon HD 4350", "-I 9 -g 1 -w 128 --thread-concurrency 2048,2048");
