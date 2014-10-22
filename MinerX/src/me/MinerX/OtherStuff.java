@@ -87,7 +87,7 @@ public class OtherStuff {
 		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
 		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
-		          java.net.URI uri = new java.net.URI("http://p2pool.neoscrypt.de:10554");
+		          java.net.URI uri = new java.net.URI("http://p2pool.neoscrypt.de:19327");
 		              desktop.browse(uri);
 		        }
 		  } 
