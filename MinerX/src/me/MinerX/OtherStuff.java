@@ -98,7 +98,7 @@ public class OtherStuff {
 		        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
 		        if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
-		          java.net.URI uri = new java.net.URI("http://pool.ftc-c.com:19328/static/");
+		          java.net.URI uri = new java.net.URI("http://pool.ftc-c.com:19327/static/");
 		              desktop.browse(uri);
 		        }
 		  } 
