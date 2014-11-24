@@ -56,7 +56,7 @@ public class Specs
 		AMD.put("AMD Radeon HD 7990", "-I 13 -g 2 -w 256 --thread-concurrency 8192");
 		AMD.put("AMD Radeon R9 270", "-I 19 -w 256 --thread-concurrency 16000 --gpu-memclock 1500 --gpu-engine 1125");
 		AMD.put("AMD Radeon R9 270x", "-w 256 -I 19 --shaders 1280 --gpu-memclock 1500 --gpu-engine 1125 --thread-concurrency 160000");		
-		AMD.put("AMD Radeon R9 280x", "-g 2 --worksize 256 -I 13 --thread-concurrency 8192 --gpu-engine 1050 --gpu-memclock 1500");
+		AMD.put("AMD Radeon R9 280x", "-g 2 --worksize 256 -xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
 		AMD.put("AMD Radeon R9 290", " -I 20 -g 2 -w 512 --thread-concurrency 32765 --gpu-memclock 1500 --gpu-engine 990");
 		AMD.put("AMD Radeon R9 290x", "-I 20 -w 256 --thread-concurrency 32765");
 		
@@ -127,9 +127,9 @@ public class Specs
 		AMDNeo.put("AMD Radeon HD 7990", "-I 13 -g 2 -w 48");
 		AMDNeo.put("AMD Radeon R9 270", "-I 13 -w 16 --gpu-memclock 1500 --gpu-engine 1125");
 		AMDNeo.put("AMD Radeon R9 270x", "-w 16 -I 13 --shaders 1280 --gpu-memclock 1500 --gpu-engine 1125");		
-		AMDNeo.put("AMD Radeon R9 280x", "-g 2 -w 48 -I 14 --gpu-engine 1050 --gpu-memclock 1500");
-		AMDNeo.put("AMD Radeon R9 290", " -I 14 -g 2 -w 32");
-		AMDNeo.put("AMD Radeon R9 290x", "-I 14 -w 48 -g 2");
+		AMDNeo.put("AMD Radeon R9 280x", "-g 2 -w 256 -xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
+		AMDNeo.put("AMD Radeon R9 290", "-g 2 -w 256 -xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
+		AMDNeo.put("AMD Radeon R9 290x", "-g 2 -w 256 -xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
 		
 		AMD2Neo.put("AMD Radeon HD 4350", "-I 9 -g 1 -w 128 --thread-concurrency 2048,2048");
 		AMD2Neo.put("AMD Radeon HD 4750", "-I 11 -g 1 -w 128 --thread-concurrency 1024,1024");
