@@ -45,6 +45,7 @@ extends JFrame
 	private JTextField ExperModeField;
 	private JCheckBox ExpertModeCheckBox;
 	private JRadioButton expertamd, experenv;
+	public static final String version = "Version 3.1";
 	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 22);
 	//public Font dogedefault = new Font("Comic Sans MS", Font.BOLD, 18);
 	public Font normal = new Font("Times New Roman", Font.BOLD, 20);
@@ -436,6 +437,7 @@ extends JFrame
 				g.drawImage(ResourceLoader.ImageLoad("/input_bar.png"),241, 256,null);
 				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg3.png"),53,36,null);
 				g.drawImage(ResourceLoader.ImageLoad("/status_text_bg3.png"),53,106,null);
+				g.drawString(version,735,500);
 				g.setFont(ftdefault);
 				
 			if(ExpertModeCheckBox.isSelected() == true){
@@ -479,8 +481,8 @@ extends JFrame
 	public void CheckExactName()
 	{
 		String p = ExactName.getText().toString();
-		String f = (String)Specs.AMD.get(p);
-		String g = (String)Specs.NVIDIA.get(p);
+		String f = (String)Specs.AMDNeo.get(p);
+		String g = (String)Specs.NVIDIANeo.get(p);
 		boolean check1 = false;
 		boolean check2 = false;
 			
