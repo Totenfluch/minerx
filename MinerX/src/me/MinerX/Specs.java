@@ -50,9 +50,9 @@ public class Specs
 		AMDNeo.put("AMD Radeon HD 7990", "-I 13 -g 2 -w 48");
 		AMDNeo.put("AMD Radeon R9 270", "-I 13 -w 16 --gpu-memclock 1500 --gpu-engine 1125");
 		AMDNeo.put("AMD Radeon R9 270x", "-w 16 -I 13 --shaders 1280 --gpu-memclock 1500 --gpu-engine 1125");		
-		AMDNeo.put("AMD Radeon R9 280x", "-g 2 -w 256 -xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
-		AMDNeo.put("AMD Radeon R9 290", "-g 2 -w 256 -xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
-		AMDNeo.put("AMD Radeon R9 290x", "-g 2 -w 256 -xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
+		AMDNeo.put("AMD Radeon R9 280x", "-g 2 -w 256 --xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
+		AMDNeo.put("AMD Radeon R9 290", "-g 2 -w 256 --xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
+		AMDNeo.put("AMD Radeon R9 290x", "-g 2 -w 256 --xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
 		
 		NVIDIANeo.put("NVIDIA GeForce GTX 760","-I 13 -w 128");
 		NVIDIANeo.put("NVIDIA GeForce GTX 780 Ti","-I 13 -w 128");
