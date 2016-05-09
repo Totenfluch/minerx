@@ -193,7 +193,7 @@ extends JFrame
 		ExpertModeCheckBox.setText("Expert Mode");
 		add(ExpertModeCheckBox);
 
-		ExperModeField = new JTextField("sgminer -k neoscrypt -o http://...", 20);
+		ExperModeField = new JTextField("sgminer --neoscrypt -o http://...", 20);
 		ExperModeField.setBounds(58, 202, 700, 25);
 		ExperModeField.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		ExperModeField.setOpaque(false);
@@ -213,7 +213,7 @@ extends JFrame
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				if(ExperModeField.getText().equals("sgminer -k neoscrypt -o http://...")){
+				if(ExperModeField.getText().equals("nsgminer --neoscrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
@@ -230,20 +230,20 @@ extends JFrame
 		ExperModeField.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mouseClicked(MouseEvent e){
-				if(ExperModeField.getText().equals("sgminer -k neoscrypt -o http://...")){
+				if(ExperModeField.getText().equals("nsgminer --neoscrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
 
 			public void mouseEntered(MouseEvent arg0) {
-				if(ExperModeField.getText().equals("sgminer -k neoscrypt -o http://...")){
+				if(ExperModeField.getText().equals("nsgminer --neoscrypt -o http://...")){
 					ExperModeField.setText("");
 				}
 			}
 
 			public void mouseExited(MouseEvent arg0) {
 				if(ExperModeField.getText().equals("")){
-					ExperModeField.setText("sgminer -k neoscrypt -o http://...");
+					ExperModeField.setText("sgminer --neoscrypt -o http://...");
 				}
 			}
 		});
@@ -262,7 +262,7 @@ extends JFrame
 			if (e.getSource() == StartMining)
 			{
 				if(Main.ExpertMode == true){
-					if(ExperModeField.getText().contains("sgminer") && ExperModeField.getText().contains("-u")){
+					if(ExperModeField.getText().contains("nsgminer") && ExperModeField.getText().contains("-u")){
 						
 						Main.Batchfile = ExperModeField.getText();
 						if(expertamd.isSelected() == true){
@@ -279,19 +279,19 @@ extends JFrame
 					if(choosereurope.isSelected() == true){
 						
 						
-							Main.Batchfile = "sgminer -k neoscrypt -o p2pool.neoscrypt.de:19327 --no-extranonce -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
+							Main.Batchfile = "nsgminer --neoscrypt -o p2pool.neoscrypt.de:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
 							folderpath = "Neosgminer";
 					}
 				
 					else if(choosereuropeone.isSelected() == true){
 						
-							Main.Batchfile = "sgminer -k neoscrypt -o http://us.mine-ftc.co.uk:19327 --no-extranonce -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString()); 
+							Main.Batchfile = "nsgminer --neoscrypt -o http://104.236.34.9:19327 -u" + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString()); 
 							folderpath = "Neosgminer";
 					}
 						
 						else{
 							
-							Main.Batchfile = "sgminer -k neoscrypt -o http://pool.ftc-c.com:19327 --no-extranonce -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
+							Main.Batchfile = "nsgminer --neoscrypt -o http://pool.ftc-c.com:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.AMDNeo.get(ExactName.getText().toString());
 							folderpath = "Neosgminer";
 							
 						}
@@ -301,19 +301,19 @@ extends JFrame
 				else if (Main.GrakaSeries.contains("NVIDIA"))
 					if(choosereurope.isSelected() == true){
 						
-						Main.Batchfile = "sgminer -k neoscrypt -o p2pool.neoscrypt.de:19327 --no-extranonce -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						Main.Batchfile = "nsgminer --neoscrypt -o p2pool.neoscrypt.de:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "Neosgminer";
 						
 					}
 				
 					else if(choosereuropeone.isSelected() == true){
 						
-						Main.Batchfile = "sgminer -k neoscrypt -o http://us.mine-ftc.co.uk:19327 --no-extranonce -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						Main.Batchfile = "nsgminer --neoscrypt -o http://104.236.34.9:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "Neosgminer";
 						
 					}
 					else{
-						Main.Batchfile = "sgminer -k neoscrypt -o http://pool.ftc-c.com:19327 --no-extranonce -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
+						Main.Batchfile = "nsgminer --neoscrypt -o http://pool.ftc-c.com:19327 -u " + Walletaddress.getText().toString() + " -p x " + (String)Specs.NVIDIANeo.get(ExactName.getText().toString());
 						folderpath = "Neosgminer";
 					}
 

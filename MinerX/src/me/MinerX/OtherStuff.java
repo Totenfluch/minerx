@@ -80,7 +80,7 @@ public class OtherStuff {
 			java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 
 			if(desktop.isSupported(java.awt.Desktop.Action.BROWSE) ) {
-				java.net.URI uri = new java.net.URI("http://us.mine-ftc.co.uk:19327/static/");
+				java.net.URI uri = new java.net.URI("http://104.236.34.9:19327/static/");
 				desktop.browse(uri);
 			}
 		} 
