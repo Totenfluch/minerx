@@ -29,8 +29,8 @@ public class Specs
 		AMDNeo.put("AMD Radeon HD 5870", "-I 18 -g 1 -w 256");
 		AMDNeo.put("AMD Radeon HD 5970", "-I 20 -g 1 -w 128");
 		AMDNeo.put("AMD Radeon HD 6320", "-I 9");
-		AMDNeo.put("AMD Radeon HD 6450", "--shaders 160 --intensity 8 --worksize 64 --gpu-memclock 900 --gpu-engine 725");
-		AMDNeo.put("AMD Radeon HD 6570", "-I 10 -w 64 --shaders 480 --gpu-memclock 900 --gpu-engine 800");
+		AMDNeo.put("AMD Radeon HD 6450", "--intensity 8 --worksize 64 --gpu-memclock 900 --gpu-engine 725");
+		AMDNeo.put("AMD Radeon HD 6570", "-I 10 -w 64 --gpu-memclock 900 --gpu-engine 800");
 		AMDNeo.put("AMD Radeon HD 6670", "-I 18 -g 1 -w 32");
 		AMDNeo.put("AMD Radeon HD 6750", "-I 16 -g 1 -w 48");
 		AMDNeo.put("AMD Radeon HD 6770", "-I 18 -g 1 -w 48");
@@ -45,14 +45,14 @@ public class Specs
 		AMDNeo.put("AMD Radeon HD 7790", "-I 14 -g 1 -w 256");
 		AMDNeo.put("AMD Radeon HD 7850", "-I 13 -w 32");
 		AMDNeo.put("AMD Radeon HD 7870", "-I 14 -w 32");
-		AMDNeo.put("AMD Radeon HD 7950", "-rI 4584 -w 64");
+		AMDNeo.put("AMD Radeon HD 7950", "--g 1 -w 128 -I 16 --gpu-platform 1 --gpu-engine 950 --gpu-memclock 1500");
 		AMDNeo.put("AMD Radeon HD 7970", "-I 13 -g 2 -w 48 --gpu-memclock 1250 --gpu-engine 1025");
 		AMDNeo.put("AMD Radeon HD 7990", "-I 13 -g 2 -w 48");
 		AMDNeo.put("AMD Radeon R9 270", "-I 13 -w 16 --gpu-memclock 1500 --gpu-engine 1125");
-		AMDNeo.put("AMD Radeon R9 270x", "-w 16 -I 13 --shaders 1280 --gpu-memclock 1500 --gpu-engine 1125");		
-		AMDNeo.put("AMD Radeon R9 280x", "-g 2 -w 256 --xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
-		AMDNeo.put("AMD Radeon R9 290", "-g 2 -w 256 --xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
-		AMDNeo.put("AMD Radeon R9 290x", "-g 2 -w 256 --xintensity 3 --thread-concurrency 8192 --gpu-engine 1000 --gpu-memclock 1500");
+		AMDNeo.put("AMD Radeon R9 270x", "-w 16 -I 13 --gpu-memclock 1500 --gpu-engine 1125");		
+		AMDNeo.put("AMD Radeon R9 280x", "-g 1 -w 128 -I 16 --gpu-platform 1 --gpu-engine 950 --gpu-memclock 1500");
+		AMDNeo.put("AMD Radeon R9 290", "-g 1 -w 128 -I 16 --gpu-platform 1 --gpu-engine 950 --gpu-memclock 1500");
+		AMDNeo.put("AMD Radeon R9 290x", "-g 1 -w 128 -I 16 --gpu-platform 1 --gpu-engine 950 --gpu-memclock 15000");
 		
 		NVIDIANeo.put("NVIDIA GeForce GTX 760","-I 13 -w 128");
 		NVIDIANeo.put("NVIDIA GeForce GTX 780 Ti","-I 13 -w 128");
@@ -85,7 +85,9 @@ public class Specs
 		NVIDIANeo.put("NVIDIA GeForce GTX 680","-I 13 --worksize 64");
 		NVIDIANeo.put("NVIDIA GeForce GTX 770","-I 13 --worksize 64");
 		NVIDIANeo.put("NVIDIA GeForce GTX 750 Ti","-w 128 -l 15 -g 1 -I 17");
-		NVIDIANeo.put("NVIDIA Geforce GTX 770","-I 18 -w 128 -g 1");
+		NVIDIANeo.put("NVIDIA GeForce GTX 770","-I 18 -w 128 -g 1");
+		NVIDIANeo.put("NVIDIA GeForce GTX 1070","-I 14 -w 128");
+		NVIDIANeo.put("NVIDIA GeForce GTX 1070","-I 14 -w 128");
 		NVIDIANeo.put("NVIDIA GeForce GTX TITAN","-w 128 -I 14");
 	}
 }

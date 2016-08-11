@@ -45,7 +45,7 @@ extends JFrame
 	private JTextField ExperModeField;
 	private JCheckBox ExpertModeCheckBox;
 	private JRadioButton expertamd, experenv;
-	public static final String version = "Version 3.1";
+	public static final String version = "Version 4.0";
 	public Font ftdefault = new Font("Times New Roman", Font.BOLD, 22);
 	//public Font dogedefault = new Font("Comic Sans MS", Font.BOLD, 18);
 	public Font normal = new Font("Times New Roman", Font.BOLD, 20);
@@ -243,7 +243,7 @@ extends JFrame
 
 			public void mouseExited(MouseEvent arg0) {
 				if(ExperModeField.getText().equals("")){
-					ExperModeField.setText("sgminer --neoscrypt -o http://...");
+					ExperModeField.setText("nsgminer --neoscrypt -o http://...");
 				}
 			}
 		});
